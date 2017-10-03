@@ -1,2 +1,0 @@
-# quanlyluong
-Quản lý lương

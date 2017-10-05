@@ -1,0 +1,1 @@
+<h1>Chào mừng đến với phần mềm quản lý lương</h1>

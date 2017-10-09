@@ -36,6 +36,9 @@
     <link href="../../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
     <link href="../../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="../../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!-- CSS toatr -->
+    <link href="../../JS/CSS/toastr.min.css" rel="stylesheet">
+    <link href="../../JS/CSS/nprogress.css" rel="stylesheet">
 
     <!-- jQuery -->
     <script src="../../vendors/jquery/dist/jquery.min.js"></script>
@@ -78,6 +81,9 @@
     <!-- Datatable -->
 	<script src="../../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="../../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <!-- -->
+    <script src="../../JS/toastr.min.js"></script>
+	<script src="../../JS/nprogress.js"></script>
   </head>
   <body class="nav-md">
     <div class="container body">
@@ -157,7 +163,7 @@
         		if(isset($_GET['xem'])){
         			$xem=$_GET['xem'];
         			if($xem==md5("quanlycanbo")){
-        				include('view/quanlycanbo/content.php');
+        				include('controller/canbo/canbocontroller.php');
         			}else{
         				include('../../View/chaomung.php');
         			}

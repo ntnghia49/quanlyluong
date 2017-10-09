@@ -121,10 +121,18 @@
 					toastr.warning('Chưa nhập mật khẩu');
 				}else{
 					$.post('Controller/login.php',{tk:tk,mk:mk},function(data){
-						if(data=="OK"){
+						if(data=="QT"){
 							window.location="Area/admin/index.php";
 						}else{
-							toastr.warning('Tên đăng nhập hoặc tài khoản không hợp lệ');
+              if(data=="KT"){
+                window.location="Area/Ketoan/index.php";
+              }else{
+                if(data=="GV"){
+                  window.location="Area/Giaovien/index.php";
+                }else{
+                  toastr.warning('Tên đăng nhập hoặc tài khoản không hợp lệ');
+                }
+              }
 						}
 					})
 				}

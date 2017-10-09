@@ -2,7 +2,7 @@
 include("test.php");
 class Taikhoan extends Ketnoi
 {
-	private $result=null;
+	public $result=null;
 	public $tentk=null;
 	public $taikhoan=null;
 	public $loai=null;
@@ -24,13 +24,9 @@ class Taikhoan extends Ketnoi
 	public function login(){
 		$kn=new Ketnoi();
 		$kn->connect();
-		$this->result=mysql_query("select * from taikhoan where tentk='$this->tentk' and pass='$this->mk'");
-		if(mysql_num_rows($this->result)>0){
-			$row=1;
-		}else{
-			$row=0;
-		}
-		return $row;
+		$this->result=mysql_query("select MaQ from taikhoan where TenDN='$this->tentk' and MatKhau='$this->mk'");
+		$row=mysql_fetch_array($this->result);
+		return $row['MaQ'];
 	}
 }
 ?>

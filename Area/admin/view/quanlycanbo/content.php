@@ -90,18 +90,85 @@
     </div>
 </div>
 <!-- -->
+<!-- Cập nhật -->
+	
+	<div class="modal fade" id="modal-capnhat" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">THÔNG TIN CÁN BỘ</h4>
+            </div>
+            <div class="modal-body">
+				<div class="row">
+					<form id="demo-form2" action="" method="post" data-parsley-validate class="form-horizontal form-label-left">
+                      <div class="form-group">
+                        <label class="control-label col-md-3">Mã cán bộ<span class="required">*</span>
+                        </label>
+                        <div class="col-md-9">
+                          <input type="text" id="macbcn" required class="form-control col-md-9" placeholder="Mã cán bộ" readonly>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3">Tên cán bộ<span class="required">*</span>
+                        </label>
+                        <div class="col-md-9">
+                          <input type="text" id="tencbcn" name="tencbcn" required class="form-control col-md-9" placeholder="Tên cán bộ">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3">Ngày sinh</label>
+                        <div class="col-md-9">
+                          <input id="ngaysinhcn" class="form-control col-md-9" type="date" name="ngaysinh">
+                        </div>
+                      </div>
+                      <div class="form-group">
+						<label class="control-label col-md-3">Giới tính</label>
+                        <div class="col-md-9">
+                        	<select name="gioitinhcn" id="gioitinhcn" class="form-control">
+                        		<option value="Nam">Nam</option>
+                        		<option value="Nữ">Nữ</option>
+                        	</select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3">Địa chỉ</label>
+                        <div class="col-md-9">
+                          <textarea name="diachicn" id="diachicn" class="form-control col-md-9" cols="5" rows="5" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3">Email</label>
+                        <div class="col-md-9">
+                          <input id="emailcn" class="form-control col-md-9" type="text" name="emailcn" placeholder="Email" required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3">Số ATM</label>
+                        <div class="col-md-9">
+                          <input id="soatmcn" class="form-control col-md-9" type="text" name="soatmcn" placeholder="Số tài khoản ATM" required>
+                        </div>
+                      </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                <button type="button" name="them" class="btn btn-success capnhat">Cập nhật</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
 
+<!-- -->
 <div class="row">
 	<div class="col-md-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>DANH SÁCH CÁN BỘ</h2>
+                <h1 style="color:#3498db">DANH SÁCH CÁN BỘ</h1>
             	<div class="clearfix"></div>
-        	</div>
-    	</div>
-    	<button type="button" class="btn btn-info btn-lg mo-modal-them">Thêm cán bộ</button>
-		<div class="x_content">
-			<table class="table table-striped table-bordered tbl">
+            	<button type="button" class="btn btn-info btn-lg mo-modal-them">Thêm cán bộ</button>
+            	<table class="table table-hover tbl">
 				<thead>
 					<tr>
 						<th>Mã cán bộ</th>
@@ -120,15 +187,15 @@
 				?>
 						<tr>
 							<td><?php echo $row['MaCB'] ?></td>
-							<td><?php echo $row['HoTen'] ?></td>
-							<td><?php echo $row['NgaySinh'] ?></td>
-							<td><?php echo $row['GioiTinh'] ?></td>
-							<td><?php echo $row['DiaChi'] ?></td>
-							<td><?php echo $row['Email'] ?></td>
-							<td><?php echo $row['SoTKATM'] ?></td>
+							<td id="hoten-<?php echo $row['MaCB'] ?>"><?php echo $row['HoTen'] ?></td>
+							<td id="ngaysinh-<?php echo $row['MaCB'] ?>"><?php echo $row['NgaySinh'] ?></td>
+							<td id="gioitinh-<?php echo $row['MaCB'] ?>"><?php echo $row['GioiTinh'] ?></td>
+							<td id="diachi-<?php echo $row['MaCB'] ?>"><?php echo $row['DiaChi'] ?></td>
+							<td id="email-<?php echo $row['MaCB'] ?>"><?php echo $row['Email'] ?></td>
+							<td id="soatm-<?php echo $row['MaCB'] ?>"><?php echo $row['SoTKATM'] ?></td>
 							<td>
 								<center>
-									<a href="#" class="btn btn-round btn-success" data-capnhat="<?php echo $row['MaCB'] ?>">
+									<a href="#" class="btn btn-round btn-success mo-modal-capnhat" data-capnhat="<?php echo $row['MaCB'] ?>">
 										<i class="fa fa-pencil"></i> Sửa
 									</a>
 									<a href="#" class="btn btn-round btn-danger mo-modal-xoa" data-xoa="<?php echo $row['MaCB']?>">
@@ -142,6 +209,9 @@
 				?>
 				</tbody>
 			</table>
+        	</div>
+    	</div>
+		<div class="x_content">
 		</div>
 	</div>
 </div>
@@ -170,8 +240,9 @@
 		});
 		//Kiểm tra
 		$('#macb').blur(function(){
+			var congviec="kiemtra";
 			var macb=$('#macb').val();
-			$.post('controller/canbo/kiemtramaso.php',{macb:macb},function(data){
+			$.post('controller/canbo/xuly.php',{congviec:congviec,macb:macb},function(data){
 				if(data=="MSTT"){
 					toastr.error("Mã số cán bộ đã tồn tại");
 				}
@@ -179,6 +250,7 @@
 		})
 		//Thêm
 		$('.them').click(function(){
+			var congviec="them";
 			var macb=$('#macb').val();
 			var tencb=$('#tencb').val();
 			var ngaysinh=$('#ngaysinh').val();
@@ -186,7 +258,7 @@
 			var diachi=$('#diachi').val();
 			var email=$('#email').val();
 			var soatm=$('#soatm').val();
-			$.post("controller/canbo/them.php",{macb:macb,tencb:tencb,ngaysinh:ngaysinh,gt:gt,diachi:diachi,email:email,soatm:soatm},function(data){
+			$.post("controller/canbo/xuly.php",{congviec:congviec,macb:macb,tencb:tencb,ngaysinh:ngaysinh,gt:gt,diachi:diachi,email:email,soatm:soatm},function(data){
 				if(data=="1"){
 					toastr.success("Thêm thành công");
 					location.reload();
@@ -203,11 +275,60 @@
 		})
 		//Xóa
 		$('.xoa').click(function(){
+			var congviec="xoa";
 			var ma=$("#mscbxoa").val();
-			$.post('controller/canbo/xoa.php',{ma:ma},function(data){
+			$.post('controller/canbo/xuly.php',{congviec:congviec,ma:ma},function(data){
 				if(data=="1"){
 					location.reload();
 				}else{
+					toastr.error("Đã có lỗi xảy ra");
+				}
+			});
+		})
+
+		//Cập nhật
+		$('.mo-modal-capnhat').click(function(){
+			$ma=$(this).attr('data-capnhat');
+
+			var mang = $("#ngaysinh-"+$ma).text().trim().split("/");
+            var date = new Date(mang[2] + "-" + mang[1] + "-" + mang[0]);
+            var ngay = date.getDate();
+            var thang = date.getMonth() + 1;
+            var nam = date.getFullYear();
+            if (ngay < 10) {
+                ngay = "0" + ngay;
+            }
+            if (thang < 10) {
+                thang = "0" + thang;
+            }
+            var ctr = nam + "-" + thang + "-" + ngay;
+
+			$('#macbcn').val($ma);
+			$('#tencbcn').val($("#hoten-"+$ma).text());
+			$('#ngaysinhcn').val(ctr);
+			$('#diachicn').val($("#diachi-"+$ma).text());
+			$('#gioitinhcn').val($("#gioitinh-"+$ma).text());
+			$('#emailcn').val($("#email-"+$ma).text());
+			$('#soatmcn').val($("#soatm-"+$ma).text());
+
+			$('#modal-capnhat').modal('show');
+		})
+		//Cập nhật
+		$('.capnhat').click(function(){
+			var congviec="capnhat";
+			var macb=$('#macbcn').val();
+			var tencb=$('#tencbcn').val();
+			var ngaysinh=$('#ngaysinhcn').val();
+			var diachi=$('#diachicn').val();
+			var gioitinh=$('#gioitinhcn').val();
+			var email=$('#emailcn').val();
+			var soatm=$('#soatmcn').val();
+			//alert(macb+tencb+ngaysinh+diachi+gioitinh+email+soatm);
+			$.post('controller/canbo/xuly.php',{congviec:congviec,macb:macb,tencb:tencb,ngaysinh:ngaysinh,diachi:diachi,gioitinh:gioitinh,email:email,soatm:soatm},function(data){
+				if(data=="1"){
+					location.reload();
+				}
+				else{
 					toastr.error("Đã có lỗi xảy ra");
 				}
 			});

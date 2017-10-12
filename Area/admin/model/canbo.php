@@ -47,5 +47,11 @@
 			$kq=$kn->conman($sql);
 			return $kq;
 		}
+		public function capnhat(){
+			$kn=new Ketnoi();
+			$sql="UPDATE `canbo` SET `HoTen`='$this->HoTen',`NgaySinh`='$this->NgaySinh',`GioiTinh`='$this->GioiTinh',`DiaChi`='$this->DiaChi',`Email`='$this->Email',`SoTKATM`='$this->SoTKATM' WHERE MaCB='$this->MaCB'";
+			$kq=$kn->conman($sql);
+			return $kq;
+		}
 	}
 ?>

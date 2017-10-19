@@ -82,7 +82,7 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form>
+            <form action="">
               <h1>ĐĂNG NHẬP</h1>
               <div>
                 <input type="text" class="form-control" id="tk" placeholder="Tên đăng nhập" required="" />
@@ -91,7 +91,7 @@
                 <input type="password" class="form-control" id="mk" placeholder="Mật khẩu" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" id="dangnhap" href="#">Đăng nhập</a>
+                <button type="button" class="btn btn-primary" id="dangnhap">Đăng nhập</button>
                 <a class="reset_pass" href="#">Quên mật khẩu</a>
               </div>
               <div class="clearfix"></div>
@@ -110,34 +110,35 @@
     </div>
   </body>
   	<script type="text/javascript">
-	$(document).ready(function(){
-		$('#dangnhap').click(function(){
-			var tk=$('#tk').val();
-			var mk=$('#mk').val();
-			if(tk.length==0){
-				toastr.warning('Tài khoản không được bỏ trống');
-			}else{
-				if(mk.length==0){
-					toastr.warning('Chưa nhập mật khẩu');
-				}else{
-					$.post('Controller/login.php',{tk:tk,mk:mk},function(data){
-						if(data=="QT"){
-							window.location="Area/admin/index.php";
-						}else{
-              if(data=="KT"){
-                window.location="Area/Ketoan/index.php";
+	$(document).keypress(function(){
+      var keycode = (event.keyCode ? event.keyCode : event.which);
+      if(keycode == '13') {
+        var tk=$('#tk').val();
+        var mk=$('#mk').val();
+        if(tk.length==0){
+          toastr.warning('Tài khoản không được bỏ trống');
+        }else{
+          if(mk.length==0){
+            toastr.warning('Chưa nhập mật khẩu');
+          }else{
+            $.post('Controller/login.php',{tk:tk,mk:mk},function(data){
+              if(data=="QT"){
+                window.location="Area/admin/index.php";
               }else{
-                if(data=="GV"){
-                  window.location="Area/Giaovien/index.php";
+                if(data=="KT"){
+                  window.location="Area/Ketoan/index.php";
                 }else{
-                  toastr.warning('Tên đăng nhập hoặc tài khoản không hợp lệ');
+                  if(data=="GV"){
+                    window.location="Area/Giaovien/index.php";
+                  }else{
+                    toastr.warning('Tên đăng nhập hoặc tài khoản không hợp lệ');
+                  }
                 }
               }
-						}
-					})
-				}
-			}
-		})
+            })
+          }
+        }
+    }
 	})
 	</script>
 </html>

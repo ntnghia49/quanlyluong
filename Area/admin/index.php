@@ -79,11 +79,11 @@
     <script src="../../vendors/moment/min/moment.min.js"></script>
     <script src="../../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- Datatable -->
-	<script src="../../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+	  <script src="../../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="../../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <!-- -->
     <script src="../../JS/toastr.min.js"></script>
-	<script src="../../JS/nprogress.js"></script>
+	 <script src="../../JS/nprogress.js"></script>
   </head>
   <body class="nav-md">
     <div class="container body">
@@ -118,6 +118,8 @@
                   <li><a><i class="fa fa-home"></i>Quản lý<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.php?xem=<?php echo md5("quanlycanbo") ?>">Quản lý cán bộ</a></li>
+                      <li><a href="index.php?xem=<?php echo md5("quanlyquyen") ?>">Cập nhật quyền</a></li>
+                      <li><a href="index.php?xem=<?php echo md5("quanlytaikhoan") ?>">Quản lý tài khoản</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -165,7 +167,15 @@
         			if($xem==md5("quanlycanbo")){
         				include('controller/canbo/canbocontroller.php');
         			}else{
-        				include('../../View/chaomung.php');
+                if($xem==md5("quanlyquyen")){
+                  include('controller/quyen/quyencontroller.php');
+                }else{
+                  if($xem==md5("quanlytaikhoan")){
+                    include('controller/taikhoan/taikhoancontroller.php');
+                  }else{
+                    include('../../View/chaomung.php');
+                  }
+                }
         			}
         		}else{
         			include('../../View/chaomung.php');

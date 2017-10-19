@@ -168,17 +168,17 @@
                 <h1 style="color:#3498db">DANH SÁCH CÁN BỘ</h1>
             	<div class="clearfix"></div>
             	<button type="button" class="btn btn-info btn-lg mo-modal-them">Thêm cán bộ</button>
-            	<table class="table table-hover tbl">
+            	<table class="table table-hover tbl" width="100%">
 				<thead>
 					<tr>
-						<th>Mã cán bộ</th>
-						<th>Họ tên</th>
-						<th>Ngày sinh</th>
-						<th>Giới tính</th>
-						<th>Địa chỉ</th>
-						<th>Email</th>
-						<th>Số TK ATM</th>
-						<th><center>Thao tác<center></th>
+						<th class="column-title">Mã cán bộ</th>
+						<th class="column-title">Họ tên</th>
+						<th class="column-title">Ngày sinh</th>
+						<th class="column-title">Giới tính</th>
+						<th class="column-title">Địa chỉ</th>
+						<th class="column-title">Email</th>
+						<th class="column-title">Số TK ATM</th>
+						<th class="column-title"><center>Thao tác<center></th>
 					</tr>
 				</thead>
 				<tbody>

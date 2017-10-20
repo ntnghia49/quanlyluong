@@ -39,6 +39,8 @@
     <!-- CSS toatr -->
     <link href="../../JS/CSS/toastr.min.css" rel="stylesheet">
     <link href="../../JS/CSS/nprogress.css" rel="stylesheet">
+    <!-- Switchery -->
+    <link href="../../vendors/switchery/dist/switchery.min.css" rel="stylesheet">
 
     <!-- jQuery -->
     <script src="../../vendors/jquery/dist/jquery.min.js"></script>
@@ -59,6 +61,8 @@
     <script src="../../vendors/iCheck/icheck.min.js"></script>
     <!-- Skycons -->
     <script src="../../vendors/skycons/skycons.js"></script>
+    <!-- Switch -->
+    <script src="../../vendors/switchery/dist/switchery.min.js"></script>
     <!-- Flot -->
     <script src="../../vendors/Flot/jquery.flot.js"></script>
     <script src="../../vendors/Flot/jquery.flot.pie.js"></script>
@@ -159,7 +163,7 @@
         <!-- /top navigation -->
 
         <!-- page content -->
-        <div class="right_col" role="main">
+        <div class="right_col" role="main" style="padding-left: 2px;padding-right: 2px;padding-top: 2px">
         	<!-- NỘI DUNG CHÈN TRONG ĐÂY TRONG ĐÂY -->
         	<?php
         		if(isset($_GET['xem'])){

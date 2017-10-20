@@ -110,6 +110,39 @@
     </div>
   </body>
   	<script type="text/javascript">
+      $(document).ready(function(){
+          $('#dangnhap').click(function(){
+            var tk=$('#tk').val();
+        var mk=$('#mk').val();
+        if(tk.length==0){
+          toastr.warning('Tài khoản không được bỏ trống');
+        }else{
+          if(mk.length==0){
+            toastr.warning('Chưa nhập mật khẩu');
+          }else{
+            $.post('Controller/login.php',{tk:tk,mk:mk},function(data){
+              if(data=="QT"){
+                window.location="Area/admin/index.php";
+              }else{
+                if(data=="KT"){
+                  window.location="Area/Ketoan/index.php";
+                }else{
+                  if(data=="GV"){
+                    window.location="Area/Giaovien/index.php";
+                  }else{
+                    if(data=="lock"){
+                      toastr.warning('Tài khoản này hiện đang bị cấm đăng nhập');
+                    }else{
+                      toastr.warning('Tên đăng nhập hoặc tài khoản không hợp lệ');
+                    }
+                  }
+                }
+              }
+            })
+          }
+        }
+          })
+      })
 	$(document).keypress(function(){
       var keycode = (event.keyCode ? event.keyCode : event.which);
       if(keycode == '13') {
@@ -131,7 +164,11 @@
                   if(data=="GV"){
                     window.location="Area/Giaovien/index.php";
                   }else{
-                    toastr.warning('Tên đăng nhập hoặc tài khoản không hợp lệ');
+                    if(data=="lock"){
+                      toastr.warning('Tài khoản này hiện đang bị cấm đăng nhập');
+                    }else{
+                      toastr.warning('Tên đăng nhập hoặc tài khoản không hợp lệ');
+                    }
                   }
                 }
               }

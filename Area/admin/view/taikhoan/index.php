@@ -12,10 +12,13 @@
             			<div class="form-group col-md-9">
                         	<label class="control-label col-md-3" style="color: #e74c3c;">Chọn quyền</label>
                         	<div class="col-md-6">
-                          		<select class="form-control" style="border-radius: 5px;">
-                          			<option value="">Admin</option>
-                          			<option value="">Ké toán</option>
-                          			<option value="">Cán bộ</option>
+                          		<select class="form-control quyenhan" style="border-radius: 5px;">
+                          			<?php
+                          				$tk->selectq();
+                          				while($row=$tk->laydanhquyen()){
+                          			?>
+                          			<option value="<?php echo $row['MaQuyen'] ?>"><?php echo $row['TenQuyen'] ?></option>
+									<?php } ?>
                           		</select>
                         	</div>
                       	</div>
@@ -72,6 +75,91 @@
 </div>
 <!-- -->
 
+<!-- Cấm -->
+<div class="modal fade" id="modal-cam" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Cấm tài khoản</h4>
+            </div>
+            <div class="modal-body">
+            	<input type="text" hidden id="macam">
+            	<input type="text" hidden id="ttcam">
+            	<span style="color: red;">Bạn có xác nhận cấm tài khoản này đăng nhập hệ thống không!!</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger closecam" data-dismiss="modal">Đóng</button>
+                <button type="button" name="them" class="btn btn-success xncam">Xác nhận</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- -->
+
+<!-- Xóa -->
+
+<div class="modal fade" id="modal-xoa" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Xóa tài khoản</h4>
+            </div>
+            <div class="modal-body">
+            	<input type="text" hidden id="maxoa">
+            	<span style="color: red;">Bạn có chắc muốn xóa tài khoản này không</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Đóng</button>
+                <button type="button" name="them" class="btn btn-danger xoa">Xóa</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- -->
+
+<!-- Phân quyền -->
+
+<div class="modal fade" id="modal-phan-quyen" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Phân quyền hạn</h4>
+            </div>
+            <div class="modal-body">
+            	<div class="row">
+					<form id="demo-form2" action="" method="post" data-parsley-validate class="form-horizontal form-label-left">
+                      <div class="form-group">
+                        <label class="control-label col-md-3">Chọn quyền</label>
+                        <div class="col-md-9">
+                        	<input type="text" hidden id="matkpq">
+							<select class="form-control phanquyenhan" style="border-radius: 5px;">
+                          		<?php
+                          			$tk->selectq();
+                          			while($row=$tk->laydanhquyen()){
+                          		?>
+                          		<option value="<?php echo $row['MaQuyen'] ?>"><?php echo $row['TenQuyen'] ?></option>
+								<?php } ?>
+                          	</select>
+                        </div>
+                      </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Đóng</button>
+                <button type="button" name="them" class="btn btn-danger xn">Xác nhận</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- -->
 <div class="row">
 	<div class="col-md-12">
         <div class="x_panel">
@@ -85,6 +173,7 @@
 						<th>Mã cán bộ</th>
 						<th>Tên đăng nhập</th>
 						<th>Quyền</th>
+						<th>Trạng thái</th>
 						<th><center>Thao tác<center></th>
 					</tr>
 				</thead>
@@ -99,10 +188,27 @@
 							<td id="macb-<?php echo $row['MaTK'] ?>"><?php echo $row['MaCB'] ?></td>
 							<td id="tendn-<?php echo $row['MaTK'] ?>"><?php echo $row['TenDN'] ?></td>
 							<td id="tenq-<?php echo $row['MaTK'] ?>"><?php echo $row['TenQuyen'] ?></td>
+							<td id="tt-<?php echo $row['MaTK'] ?>">
+								<?php
+									if($row['TrangThai']==1){
+								?>
+                            	<label>
+                              		<input type="checkbox" class="js-switch cam <?php echo $row['MaTK'] ?>" data-cam="<?php echo $row['MaTK'] ?>" id="<?php echo $row['MaTK'] ?>" checked data-switchery="true" style="display: none;" value="<?php echo $row['TrangThai'] ?>">
+                            	</label>
+                            	<?php
+                            		}else{ 
+                            	?>
+                            	<label>
+                              		<input type="checkbox" class="js-switch cam <?php echo $row['MaTK'] ?>" data-cam="<?php echo $row['MaTK'] ?>" id="<?php echo $row['MaTK'] ?>" data-switchery="true" style="display: none;" value="<?php echo $row['TrangThai'] ?>">
+                            	</label>
+                            	<?php 
+                            		}
+                            	?>
+							</td>
 							<td width="200px">
 								<center>
-									<a href="#" class="btn btn-round btn-success mo-modal-capnhat" data-capnhat="<?php echo $row['MaTK'] ?>">
-										<i class="fa fa-pencil"></i> Sửa
+									<a href="#" class="btn btn-round btn-success mo-modal-capnhat" data-phanquyen="<?php echo $row['MaTK'] ?>">
+										<i class="fa fa-pencil"></i> Phân quyền
 									</a>
 									<a href="#" class="btn btn-round btn-danger mo-modal-xoa" data-xoa="<?php echo $row['MaTK']?>">
 										<i class="fa fa-trash"></i> Xóa
@@ -149,6 +255,8 @@
 			var sl=$('#soluong').val();
 			var ma=new Array();
 			var j=0;
+			var cv="them";
+			var maq=$('.quyenhan').val();
 			for (var i = 1; i <= sl; i++) {
 				if(document.getElementById(i).checked==true){
 					ma[j]=$("#"+i+"-macb").text();
@@ -158,11 +266,76 @@
 			if(ma.length==0){
 				toastr.warning("Vui lòng chọn cán bộ muốn cấp tài khoản");
 			}else{
-				$.post('controller/taikhoan/xuly.php',{ma:ma},function(data){
-					alert(data);
+				$.post('controller/taikhoan/xuly.php',{cv:cv,ma:ma,maq:maq},function(data){
+					//alert(data);
+					if(data=="OK")
+						location.reload();
+					else
+						toastr.warning("Đã có lỗi xảy ra");
 				});
 			}
 		})
-
+		//Cấm tài khoản
+		$('.cam').click(function(){
+			var ma=$(this).attr('data-cam');
+			var tt=null;
+			if($("."+ma).val()==1){
+				tt=0;
+			}else{
+				tt=1;
+			}
+			$('#macam').val(ma);
+			$('#ttcam').val(tt);
+			$('#modal-cam').modal('show');
+		})
+		//Cấm
+		$('.xncam').click(function(){
+			var ma=$('#macam').val();
+			var tt=$('#ttcam').val();
+			var cv="lock";
+			$.post('controller/taikhoan/xuly.php',{cv:cv,ma:ma,tt:tt},function(data){
+				if(data=="OK")
+					location.reload();
+				else
+					toastr.error("Đã có lỗi xảy ra");
+			});
+		})
+		$('.closecam').click(function(){
+			location.reload();
+		})
+		//Mở modal xóa
+		$('.mo-modal-xoa').click(function(){
+			var ma=$(this).attr('data-xoa');
+			$('#maxoa').val(ma);
+			$('#modal-xoa').modal('show');
+		})
+		//Xóa
+		$('.xoa').click(function(){
+			var ma=$('#maxoa').val();
+			var cv="xoa";
+			$.post('controller/taikhoan/xuly.php',{cv:cv,ma:ma},function(data){
+				if(data=="OK")
+					location.reload();
+				else
+					toastr.error("Đã có lỗi xảy ra");
+			});
+		})
+		//Mở modal phân quyền
+		$('.mo-modal-capnhat').click(function(){
+			var ma=$(this).attr('data-phanquyen');
+			$('#matkpq').val(ma);
+			$('#modal-phan-quyen').modal('show');
+		});
+		$('.xn').click(function(){
+			var matk=$('#matkpq').val();
+			var maq=$('.phanquyenhan').val();
+			var cv="phanquyen";
+			$.post('controller/taikhoan/xuly.php',{matk:matk,maq:maq,cv:cv},function(data){
+				if(data=="OK")
+					location.reload();
+				else
+					toastr.error("Đã có lỗi xảy ra");
+			});
+		})
 	});
 </script>

@@ -28,5 +28,12 @@ class Taikhoan extends Ketnoi
 		$row=mysql_fetch_array($this->result);
 		return $row['MaQ'];
 	}
+	public function tt(){
+		$kn=new Ketnoi();
+		$kn->connect();
+		$this->result=mysql_query("select TrangThai from taikhoan where TenDN='$this->tentk' and MatKhau='$this->mk'");
+		$row=mysql_fetch_array($this->result);
+		return $row['TrangThai'];
+	}
 }
 ?>

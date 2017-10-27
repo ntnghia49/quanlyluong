@@ -36,7 +36,7 @@
 		}
 		public function them(){
 			$kn=new Ketnoi();
-			$kq=$kn->conman("INSERT INTO `bangluong`(`MaCB`, `TLuongThang`, `TruyLinhLuong`, `BDTheoGio`, `TienLuongTang`, `PCCNV`, `PCLĐ`, `TruyThuTLuong`, `TongSoTien`, `KPCD`, `SoTienCL`, `Thang`, `Nam`) VALUES ('$this->MaCB','$this->TLuongThang','',[value-5],[value-6],[value-7],[value-8],[value-9],[value-10],[value-11],[value-12],[value-13],[value-14])");
+			$kq=$kn->conman("INSERT INTO `bangluong`(`MaCB`, `TLuongThang`, `TruyLinhLuong`, `BDTheoGio`, `TienLuongTang`, `PCCNV`, `PCLĐ`, `TruyThuTLuong`, `TongSoTien`, `KPCD`, `SoTienCL`, `Thang`, `Nam`) VALUES ('$this->MaCB','$this->TLuongThang','$this->TruyLinhLuong','$this->BDTheoGio','$this->TienLuongTang','$this->PCCNV','$this->PCLD','$this->TruyThuTienLuong','$this->TongSoTien','$this->KPCD','$this->SoTienCL','$this->Thang','$this->Nam')");
 		}
 	}
 ?>

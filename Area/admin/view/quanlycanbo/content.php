@@ -258,15 +258,41 @@
 			var diachi=$('#diachi').val();
 			var email=$('#email').val();
 			var soatm=$('#soatm').val();
-			$.post("controller/canbo/xuly.php",{congviec:congviec,macb:macb,tencb:tencb,ngaysinh:ngaysinh,gt:gt,diachi:diachi,email:email,soatm:soatm},function(data){
-				if(data=="1"){
-					toastr.success("Thêm thành công");
-					location.reload();
-				}else{
-					toastr.error("Thêm thất bại! Vui lòng xem lại");
-				}	
-			});
-		})
+			if(macb.length==0 || tencb.length==0 || ngaysinh.length==0 || gt.length==0 || diachi.length==0 || email.length==0 || soatm.length==0 ){
+        toastr.error("Vui lòng nhập đầy đủ thông tin");
+      }else{
+        var hotencb = tencb.trim().split(" ");
+          if(hotencb.length<2){
+            toastr.error("Họ tên cán bộ cần nhập ít nhất 2 từ");
+          }else{
+            var mang = ngaysinh.trim().split("-");
+            var ngayhientai = new Date;
+            var namhientai = ngayhientai.getFullYear();
+              if(namhientai - mang[0] <18 || namhientai - mang[0] >60){
+                toastr.error("Độ tuổi cán bộ phải từ 18 đến 60");
+              }else{
+                var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                  if(!filter.test(email)){
+                    toastr.error("Mail không hợp lệ");
+                  }else{
+                    var filter = /^[0-9]{10,20}$/;
+                      if(!filter.test(soatm)){
+                        toastr.error("Số ATM chỉ được nhập số từ 10 đến 20");
+                      }else{
+                        $.post("controller/canbo/xuly.php",{congviec:congviec,macb:macb,tencb:tencb,ngaysinh:ngaysinh,gt:gt,diachi:diachi,email:email,soatm:soatm},function(data){
+                        if(data=="1"){
+                          toastr.success("Thêm thành công");
+                          location.reload();
+                        }else{
+                          toastr.error("Thêm thất bại! Vui lòng xem lại");
+                        } 
+                      }); 
+                    }
+                  }
+                }
+              }
+            }
+         });
 		//Mở modal xóa
 		$('.mo-modal-xoa').click(function(){
 			$ma=$(this).attr("data-xoa");
@@ -324,14 +350,40 @@
 			var email=$('#emailcn').val();
 			var soatm=$('#soatmcn').val();
 			//alert(macb+tencb+ngaysinh+diachi+gioitinh+email+soatm);
-			$.post('controller/canbo/xuly.php',{congviec:congviec,macb:macb,tencb:tencb,ngaysinh:ngaysinh,diachi:diachi,gioitinh:gioitinh,email:email,soatm:soatm},function(data){
-				if(data=="1"){
-					location.reload();
-				}
-				else{
-					toastr.error("Đã có lỗi xảy ra");
-				}
-			});
-		})
-	})
+			if(tencb.length==0 || ngaysinh.length==0 || diachi.length==0 || gioitinh.length==0 || email.length==0 || soatm.length==0 ){
+        toastr.error("Vui lòng nhập đầy đủ thông tin");
+      }else{
+        var hotencb = tencb.trim().split(" ");
+          if(hotencb.length<2){
+            toastr.error("Họ tên cán bộ cần nhập ít nhất 2 từ");
+          }else{
+            var mang = ngaysinh.trim().split("-");
+            var ngayhientai = new Date;
+            var namhientai = ngayhientai.getFullYear();
+              if(namhientai - mang[0] <18 || namhientai - mang[0] >60){
+                toastr.error("Độ tuổi cán bộ phải từ 18 đến 60");
+              }else{
+                var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                  if(!filter.test(email)){
+                    toastr.error("Mail không hợp lệ");
+                  }else{
+                    var filter = /^[0-9]{10,20}$/;
+                      if(!filter.test(soatm)){
+                        toastr.error("Số ATM chỉ được nhập số từ 10 đến 20");
+                      }else{
+                        $.post('controller/canbo/xuly.php',{congviec:congviec,macb:macb,tencb:tencb,ngaysinh:ngaysinh,diachi:diachi,gioitinh:gioitinh,email:email,soatm:soatm},function(data){
+                        if(data=="1"){
+                          location.reload();
+                        }
+                        else{
+                          toastr.error("Đã có lỗi xảy ra");
+                        }
+                      });
+                    }
+                  }
+                }
+              }
+            }
+         })
+       })
 </script>

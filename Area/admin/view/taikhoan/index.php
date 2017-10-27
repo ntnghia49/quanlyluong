@@ -98,6 +98,29 @@
 </div>
 <!-- -->
 
+<!-- Không cấm -->
+<div class="modal fade" id="modal-khong-cam" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Cấm tài khoản</h4>
+            </div>
+            <div class="modal-body">
+            	<input type="text" hidden id="macam">
+            	<input type="text" hidden id="ttcam">
+            	<span style="color: red;">Bạn có xác nhận cho phép tài khoản này đăng nhập hệ thống không!!</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger closecam" data-dismiss="modal">Đóng</button>
+                <button type="button" name="them" class="btn btn-success xncam">Xác nhận</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- -->
+
 <!-- Xóa -->
 
 <div class="modal fade" id="modal-xoa" tabindex="-1" role="dialog">
@@ -199,7 +222,7 @@
                             		}else{ 
                             	?>
                             	<label>
-                              		<input type="checkbox" class="js-switch cam <?php echo $row['MaTK'] ?>" data-cam="<?php echo $row['MaTK'] ?>" id="<?php echo $row['MaTK'] ?>" data-switchery="true" style="display: none;" value="<?php echo $row['TrangThai'] ?>">
+                              		<input type="checkbox" class="js-switch khongcam <?php echo $row['MaTK'] ?>" data-cam="<?php echo $row['MaTK'] ?>" id="<?php echo $row['MaTK'] ?>" data-switchery="true" style="display: none;" value="<?php echo $row['TrangThai'] ?>">
                             	</label>
                             	<?php 
                             		}
@@ -287,6 +310,19 @@
 			$('#macam').val(ma);
 			$('#ttcam').val(tt);
 			$('#modal-cam').modal('show');
+		})
+		//Không cấm nữa
+		$('.khongcam').click(function(){
+			var ma=$(this).attr('data-cam');
+			var tt=null;
+			if($("."+ma).val()==1){
+				tt=0;
+			}else{
+				tt=1;
+			}
+			$('#macam').val(ma);
+			$('#ttcam').val(tt);
+			$('#modal-khong-cam').modal('show');
 		})
 		//Cấm
 		$('.xncam').click(function(){

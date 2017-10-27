@@ -1,0 +1,42 @@
+<?php
+	include('ketnoi.php'); 
+	/**
+	* 
+	*/
+	class BangLuong extends Ketnoi
+	{
+		public $MaBL=null;
+		public $MaCB=null;
+		public $TLuongThang=null;
+		public $TruyLinhLuong=null;
+		public $BDTheoGio=null;
+		public $TienLuongTang=null;
+		public $PCCNV=null;
+		public $PCLD=null;
+		public $TruyThuTienLuong=null;
+		public $TongSoTien=null;
+		public $KPCD=null;
+		public $SoTienCL=null;
+		public $Thang=null;
+		public $Nam=null;
+
+		public function select(){
+			$kn=new Ketnoi();
+			$kn->connect();
+			$this->resuft=mysql_query("select * from bangluong");
+		}
+
+		public function laybangluong(){
+			if(mysql_num_rows($this->resuft)>0){
+				$row=mysql_fetch_array($this->resuft);
+			}else{
+				$row=null;
+			}
+			return $row;
+		}
+		public function them(){
+			$kn=new Ketnoi();
+			$kq=$kn->conman("INSERT INTO `bangluong`(`MaCB`, `TLuongThang`, `TruyLinhLuong`, `BDTheoGio`, `TienLuongTang`, `PCCNV`, `PCLĐ`, `TruyThuTLuong`, `TongSoTien`, `KPCD`, `SoTienCL`, `Thang`, `Nam`) VALUES ([value-2],[value-3],[value-4],[value-5],[value-6],[value-7],[value-8],[value-9],[value-10],[value-11],[value-12],[value-13],[value-14])");
+		}
+	}
+?>

@@ -31,7 +31,7 @@
 					$dem++;
 			}
 			if($dem==count($ma))
-				echo "OK";
+				echo $dem;
 			else
 				echo "TB";
 		};break;

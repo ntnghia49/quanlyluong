@@ -16,9 +16,13 @@
                           			<?php
                           				$tk->selectq();
                           				while($row=$tk->laydanhquyen()){
+                          					if($row['TenQuyen']!="Quản trị"){
                           			?>
                           			<option value="<?php echo $row['MaQuyen'] ?>"><?php echo $row['TenQuyen'] ?></option>
-									<?php } ?>
+									<?php
+											}
+										} 
+									?>
                           		</select>
                         	</div>
                       	</div>
@@ -44,6 +48,7 @@
 		                        <?php 
 		                        	$tk->selectcanbo();
 		                        	$i=1;
+
 		                        	while($row=$tk->laydanhsachtaikhoan()){
 		                        ?>
 		                          <tr class="even pointer">
@@ -165,9 +170,13 @@
                           		<?php
                           			$tk->selectq();
                           			while($row=$tk->laydanhquyen()){
+                          				if($row['TenQuyen']!="Quản trị"){
                           		?>
                           		<option value="<?php echo $row['MaQuyen'] ?>"><?php echo $row['TenQuyen'] ?></option>
-								<?php } ?>
+								<?php
+										}
+									} 
+								?>
                           	</select>
                         </div>
                       </div>
@@ -291,8 +300,13 @@
 			}else{
 				$.post('controller/taikhoan/xuly.php',{cv:cv,ma:ma,maq:maq},function(data){
 					//alert(data);
-					if(data=="OK")
-						location.reload();
+					if(data!="TB"){
+						var d="Đã thêm "+data+" tai khoản";
+						toastr.success(d);
+						setTimeout(function(){
+							location.reload();
+						},500)
+					}
 					else
 						toastr.warning("Đã có lỗi xảy ra");
 				});
@@ -330,8 +344,12 @@
 			var tt=$('#ttcam').val();
 			var cv="lock";
 			$.post('controller/taikhoan/xuly.php',{cv:cv,ma:ma,tt:tt},function(data){
-				if(data=="OK")
-					location.reload();
+				if(data=="OK"){
+					toastr.success("Đã cấm tài khoản này");
+					setTimeout(function(){
+						location.reload();
+					},500)
+				}
 				else
 					toastr.error("Đã có lỗi xảy ra");
 			});
@@ -350,8 +368,12 @@
 			var ma=$('#maxoa').val();
 			var cv="xoa";
 			$.post('controller/taikhoan/xuly.php',{cv:cv,ma:ma},function(data){
-				if(data=="OK")
-					location.reload();
+				if(data=="OK"){
+					toastr.success("Xóa thành công");
+					setTimeout(function(){
+						location.reload();
+					},500)
+				}
 				else
 					toastr.error("Đã có lỗi xảy ra");
 			});
@@ -367,8 +389,12 @@
 			var maq=$('.phanquyenhan').val();
 			var cv="phanquyen";
 			$.post('controller/taikhoan/xuly.php',{matk:matk,maq:maq,cv:cv},function(data){
-				if(data=="OK")
-					location.reload();
+				if(data=="OK"){
+					toastr.success("Phân quyền thành công");
+					setTimeout(function(){
+						location.reload();
+					},500)
+				}
 				else
 					toastr.error("Đã có lỗi xảy ra");
 			});

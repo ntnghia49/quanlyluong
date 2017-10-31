@@ -13,7 +13,10 @@
                         <label class="control-label col-md-3">Quyền<span class="required">*</span>
                         </label>
                         <div class="col-md-9">
-                          <input type="text" id="tenquyen" required class="form-control col-md-9" placeholder="Nhập quyền muốn thêm">
+                          <select id="tenquyen" class="form-control col-md-9">
+                              <option value="Giáo viên">Giáo viên</option>
+                              <option value="Kế toán">Kế toán</option>
+                          </select>
                         </div>
                       </div>
                 </div>
@@ -156,8 +159,12 @@
         	var cv="them";
         	var tenq=$('#tenquyen').val();
         	$.post('controller/quyen/xuly.php',{cv:cv,tenq:tenq},function(data){
-        		if(data=="1")
-        			location.reload();
+        		if(data=="1"){
+        			toastr.success("Thêm thành công");
+                    setTimeout(function(){
+                        location.reload();
+                    },500)
+                }
         		else
         			toastr.error("Đã có lỗi xảy ra!!");
         	});
@@ -173,8 +180,12 @@
         	var cv="xoa";
         	var ma=$('#maxoa').val();
         	$.post('controller/quyen/xuly.php',{cv:cv,ma:ma},function(data){
-        		if(data=="1")
-        			location.reload();
+        		if(data=="1"){
+        			toastr.success("Xóa thành công");
+                    setTimeout(function(){
+                        location.reload();
+                    },500)
+                }
         		else
         			toastr.error("Đã có lỗi xảy ra!!");
         	});
@@ -192,8 +203,12 @@
         	var ma=$('.maqcn').val();
         	var ten=$('#tenquyencn').val();
         	$.post('controller/quyen/xuly.php',{cv:cv,ma:ma,ten:ten},function(data){
-        		if(data=="1")
-        			location.reload();
+        		if(data=="1"){
+        			toastr.success("Cập nhật thành công");
+                    setTimeout(function(){
+                        location.reload();
+                    },500)
+                }
         		else
         			toastr.error("Đã có lỗi xảy ra!!");
         	});

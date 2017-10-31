@@ -282,7 +282,9 @@
                         $.post("controller/canbo/xuly.php",{congviec:congviec,macb:macb,tencb:tencb,ngaysinh:ngaysinh,gt:gt,diachi:diachi,email:email,soatm:soatm},function(data){
                         if(data=="1"){
                           toastr.success("Thêm thành công");
-                          location.reload();
+                          setTimeout(function(){
+                            location.reload();
+                          },500)
                         }else{
                           toastr.error("Thêm thất bại! Vui lòng xem lại");
                         } 
@@ -305,7 +307,10 @@
 			var ma=$("#mscbxoa").val();
 			$.post('controller/canbo/xuly.php',{congviec:congviec,ma:ma},function(data){
 				if(data=="1"){
-					location.reload();
+					toastr.success("Xóa thành công");
+          setTimeout(function(){
+            location.reload();
+          },500)
 				}else{
 					toastr.error("Đã có lỗi xảy ra");
 				}
@@ -373,7 +378,10 @@
                       }else{
                         $.post('controller/canbo/xuly.php',{congviec:congviec,macb:macb,tencb:tencb,ngaysinh:ngaysinh,diachi:diachi,gioitinh:gioitinh,email:email,soatm:soatm},function(data){
                         if(data=="1"){
-                          location.reload();
+                          toastr.success("Cập nhật thành công");
+                          setTimeout(function(){
+                            location.reload();
+                          },500)
                         }
                         else{
                           toastr.error("Đã có lỗi xảy ra");

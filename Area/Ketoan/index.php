@@ -121,8 +121,8 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i>Công việc<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.php?xem=<?php echo md5("bangluong") ?>">Bảng lương</a></li>
-                      <li><a href="index.php?xem=<?php echo md5("quanlyquyen") ?>">Thông tin cá nhân</a></li>
+                      <li><a href="index.php?xem=<?php echo md5("bangluong") ?>">Import bảng lương</a></li>
+                      <li><a href="index.php?xem=<?php echo md5("qlbangluong") ?>">Quản lý bảng lương</a></li>
                       <li><a href="index.php?xem=<?php echo md5("quanlytaikhoan") ?>">Đổi mật khẩu</a></li>
                     </ul>
                   </li>
@@ -172,8 +172,8 @@
         				include('controller/bangluong/bangluongcontrolller.php');
         			}else{
                     	include('../../View/chaomung.php');
-                  	}
-                }else{
+              }
+            }else{
         			include('../../View/chaomung.php');
         		}
         	?>

@@ -78,6 +78,28 @@
 					echo "MSTT";
 				}
 			};break;
+			case "kiemtra1":{
+				if(isset($_POST['email'])){
+					$cb->Email=$_POST['email'];
+				}else{
+					$cb->Email="";
+				}
+				$kg=$cb->kiemtra1();
+				if($kg==1){
+					echo "EmailTT";
+				}
+			};break;
+			case "kiemtra2":{
+				if(isset($_POST['soatm'])){
+					$cb->SoTKATM=$_POST['soatm'];
+				}else{
+					$cb->SoTKATM="";
+				}
+				$kg=$cb->kiemtra2();
+				if($kg==1){
+					echo "SoATMTT";
+				}
+			};break;
 			case "capnhat":{
 				$cb->MaCB=$_POST['macb'];
 				$cb->HoTen=$_POST['tencb'];

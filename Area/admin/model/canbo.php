@@ -35,6 +35,26 @@
 				return 0;
 			}
 		}
+		public function kiemtra1(){
+			$kn=new Ketnoi();
+			$kn->connect();
+			$this->resuft=mysql_query("select * from canbo where Email='$this->Email'");
+			if(mysql_num_rows($this->resuft)>0){
+				return 1;
+			}else{
+				return 0;
+			}
+		}
+		public function kiemtra2(){
+			$kn=new Ketnoi();
+			$kn->connect();
+			$this->resuft=mysql_query("select * from canbo where SoTKATM='$this->SoTKATM'");
+			if(mysql_num_rows($this->resuft)>0){
+				return 1;
+			}else{
+				return 0;
+			}
+		}
 		public function them(){
 			$kn=new Ketnoi();
 			$sql="INSERT INTO `canbo`(`MaCB`, `HoTen`, `NgaySinh`, `GioiTinh`, `DiaChi`, `Email`, `SoTKATM`) VALUES ('$this->MaCB','$this->HoTen','$this->NgaySinh','$this->GioiTinh','$this->DiaChi','$this->Email','$this->SoTKATM')";

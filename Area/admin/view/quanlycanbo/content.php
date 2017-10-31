@@ -7,8 +7,8 @@
                 <h4 class="modal-title" id="myModalLabel">THÔNG TIN CÁN BỘ</h4>
             </div>
             <div class="modal-body">
-				<div class="row">
-					<form id="demo-form2" action="" method="post" data-parsley-validate class="form-horizontal form-label-left">
+        <div class="row">
+          <form id="demo-form2" action="" method="post" data-parsley-validate class="form-horizontal form-label-left">
                       <div class="form-group">
                         <label class="control-label col-md-3">Mã cán bộ<span class="required">*</span>
                         </label>
@@ -30,12 +30,12 @@
                         </div>
                       </div>
                       <div class="form-group">
-						<label class="control-label col-md-3">Giới tính</label>
+            <label class="control-label col-md-3">Giới tính</label>
                         <div class="col-md-9">
-                        	<select name="gioitinh" id="gioitinh" class="form-control">
-                        		<option value="Nam">Nam</option>
-                        		<option value="Nữ">Nữ</option>
-                        	</select>
+                          <select name="gioitinh" id="gioitinh" class="form-control">
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
+                          </select>
                         </div>
                       </div>
                       <div class="form-group">
@@ -76,8 +76,8 @@
                 <h4 class="modal-title" id="myModalLabel">THÔNG TIN CÁN BỘ</h4>
             </div>
             <div class="modal-body">
-            	<input type="text" name="mscbxoa" id="mscbxoa" hidden>
-            	Bạn có muốn xóa?
+              <input type="text" name="mscbxoa" id="mscbxoa" hidden>
+              Bạn có muốn xóa?
                 <br />
                 Khi xóa, thông tin về cán bộ không thể phục hồi lại được.
             </div>
@@ -91,8 +91,8 @@
 </div>
 <!-- -->
 <!-- Cập nhật -->
-	
-	<div class="modal fade" id="modal-capnhat" tabindex="-1" role="dialog">
+  
+  <div class="modal fade" id="modal-capnhat" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -100,8 +100,8 @@
                 <h4 class="modal-title" id="myModalLabel">THÔNG TIN CÁN BỘ</h4>
             </div>
             <div class="modal-body">
-				<div class="row">
-					<form id="demo-form2" action="" method="post" data-parsley-validate class="form-horizontal form-label-left">
+        <div class="row">
+          <form id="demo-form2" action="" method="post" data-parsley-validate class="form-horizontal form-label-left">
                       <div class="form-group">
                         <label class="control-label col-md-3">Mã cán bộ<span class="required">*</span>
                         </label>
@@ -123,12 +123,12 @@
                         </div>
                       </div>
                       <div class="form-group">
-						<label class="control-label col-md-3">Giới tính</label>
+            <label class="control-label col-md-3">Giới tính</label>
                         <div class="col-md-9">
-                        	<select name="gioitinhcn" id="gioitinhcn" class="form-control">
-                        		<option value="Nam">Nam</option>
-                        		<option value="Nữ">Nữ</option>
-                        	</select>
+                          <select name="gioitinhcn" id="gioitinhcn" class="form-control">
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
+                          </select>
                         </div>
                       </div>
                       <div class="form-group">
@@ -162,62 +162,62 @@
 
 <!-- -->
 <div class="row">
-	<div class="col-md-12">
+  <div class="col-md-12">
         <div class="x_panel">
             <div class="x_title">
                 <h1 style="color:#3498db">DANH SÁCH CÁN BỘ</h1>
-            	<div class="clearfix"></div>
-            	<button type="button" class="btn btn-info btn-lg mo-modal-them">Thêm cán bộ</button>
-            	<table class="table table-hover tbl" width="100%">
-				<thead>
-					<tr>
-						<th class="column-title">Mã cán bộ</th>
-						<th class="column-title">Họ tên</th>
-						<th class="column-title">Ngày sinh</th>
-						<th class="column-title">Giới tính</th>
-						<th class="column-title">Địa chỉ</th>
-						<th class="column-title">Email</th>
-						<th class="column-title">Số TK ATM</th>
-						<th class="column-title"><center>Thao tác<center></th>
-					</tr>
-				</thead>
-				<tbody>
-				<?php
-					while($row=$cb->laydanhsachcanbo()){
-				?>
-						<tr>
-							<td><?php echo $row['MaCB'] ?></td>
-							<td id="hoten-<?php echo $row['MaCB'] ?>"><?php echo $row['HoTen'] ?></td>
-							<td id="ngaysinh-<?php echo $row['MaCB'] ?>"><?php echo $row['NgaySinh'] ?></td>
-							<td id="gioitinh-<?php echo $row['MaCB'] ?>"><?php echo $row['GioiTinh'] ?></td>
-							<td id="diachi-<?php echo $row['MaCB'] ?>"><?php echo $row['DiaChi'] ?></td>
-							<td id="email-<?php echo $row['MaCB'] ?>"><?php echo $row['Email'] ?></td>
-							<td id="soatm-<?php echo $row['MaCB'] ?>"><?php echo $row['SoTKATM'] ?></td>
-							<td>
-								<center>
-									<a href="#" class="btn btn-round btn-success mo-modal-capnhat" data-capnhat="<?php echo $row['MaCB'] ?>">
-										<i class="fa fa-pencil"></i> Sửa
-									</a>
-									<a href="#" class="btn btn-round btn-danger mo-modal-xoa" data-xoa="<?php echo $row['MaCB']?>">
-										<i class="fa fa-trash"></i> Xóa
-									</a>
-								</center>
-							</td>
-						</tr>
-				<?php
-					}
-				?>
-				</tbody>
-			</table>
-        	</div>
-    	</div>
-		<div class="x_content">
-		</div>
-	</div>
+              <div class="clearfix"></div>
+              <button type="button" class="btn btn-info btn-lg mo-modal-them">Thêm cán bộ</button>
+              <table class="table table-hover tbl" width="100%">
+        <thead>
+          <tr>
+            <th class="column-title">Mã cán bộ</th>
+            <th class="column-title">Họ tên</th>
+            <th class="column-title">Ngày sinh</th>
+            <th class="column-title">Giới tính</th>
+            <th class="column-title">Địa chỉ</th>
+            <th class="column-title">Email</th>
+            <th class="column-title">Số TK ATM</th>
+            <th class="column-title"><center>Thao tác<center></th>
+          </tr>
+        </thead>
+        <tbody>
+        <?php
+          while($row=$cb->laydanhsachcanbo()){
+        ?>
+            <tr>
+              <td><?php echo $row['MaCB'] ?></td>
+              <td id="hoten-<?php echo $row['MaCB'] ?>"><?php echo $row['HoTen'] ?></td>
+              <td id="ngaysinh-<?php echo $row['MaCB'] ?>"><?php echo $row['NgaySinh'] ?></td>
+              <td id="gioitinh-<?php echo $row['MaCB'] ?>"><?php echo $row['GioiTinh'] ?></td>
+              <td id="diachi-<?php echo $row['MaCB'] ?>"><?php echo $row['DiaChi'] ?></td>
+              <td id="email-<?php echo $row['MaCB'] ?>"><?php echo $row['Email'] ?></td>
+              <td id="soatm-<?php echo $row['MaCB'] ?>"><?php echo $row['SoTKATM'] ?></td>
+              <td>
+                <center>
+                  <a href="#" class="btn btn-round btn-success mo-modal-capnhat" data-capnhat="<?php echo $row['MaCB'] ?>">
+                    <i class="fa fa-pencil"></i> Sửa
+                  </a>
+                  <a href="#" class="btn btn-round btn-danger mo-modal-xoa" data-xoa="<?php echo $row['MaCB']?>">
+                    <i class="fa fa-trash"></i> Xóa
+                  </a>
+                </center>
+              </td>
+            </tr>
+        <?php
+          }
+        ?>
+        </tbody>
+      </table>
+          </div>
+      </div>
+    <div class="x_content">
+    </div>
+  </div>
 </div>
 
 <script>
-	$(document).ready(function(){
+  $(document).ready(function(){
 
         $('.tbl').DataTable({
             language: {
@@ -235,30 +235,52 @@
             }
         });
 
-		$('.mo-modal-them').click(function(){
-			$('#modal-them').modal('show');
-		});
-		//Kiểm tra
-		$('#macb').blur(function(){
-			var congviec="kiemtra";
-			var macb=$('#macb').val();
-			$.post('controller/canbo/xuly.php',{congviec:congviec,macb:macb},function(data){
-				if(data=="MSTT"){
-					toastr.error("Mã số cán bộ đã tồn tại");
-				}
-			});
-		})
-		//Thêm
-		$('.them').click(function(){
-			var congviec="them";
-			var macb=$('#macb').val();
-			var tencb=$('#tencb').val();
-			var ngaysinh=$('#ngaysinh').val();
-			var gt=$('#gioitinh').val();
-			var diachi=$('#diachi').val();
-			var email=$('#email').val();
-			var soatm=$('#soatm').val();
-			if(macb.length==0 || tencb.length==0 || ngaysinh.length==0 || gt.length==0 || diachi.length==0 || email.length==0 || soatm.length==0 ){
+    $('.mo-modal-them').click(function(){
+      $('#modal-them').modal('show');
+    });
+    //Kiểm tra mã cán bộ có tồn tại hay không
+    $('#macb').blur(function(){
+      var congviec="kiemtra";
+      var macb=$('#macb').val();
+      $.post('controller/canbo/xuly.php',{congviec:congviec,macb:macb},function(data){
+        if(data=="MSTT"){
+          toastr.error("Mã số cán bộ đã tồn tại");
+        }
+      });
+    })
+    //Kiểm tra email có tồn tại hay không
+    $('#email').blur(function(){
+      var congviec="kiemtra1";
+      var email=$('#email').val();
+      $.post('controller/canbo/xuly.php',{congviec:congviec,email:email},function(data){
+        if(data=="EmailTT"){
+          toastr.error("Email cán bộ đã tồn tại");
+          $('#email').val("");
+        }
+      });
+    })
+    //Kiểm tra số atm có tồn tại hay không
+    $('#soatm').blur(function(){
+      var congviec="kiemtra2";
+      var soatm=$('#soatm').val();
+      $.post('controller/canbo/xuly.php',{congviec:congviec,soatm:soatm},function(data){
+        if(data=="SoATMTT"){
+          toastr.error("Số tài khoản ATM đã tồn tại");
+          $('#soatm').val("");
+        }
+      });
+    })
+    //Thêm
+    $('.them').click(function(){
+      var congviec="them";
+      var macb=$('#macb').val();
+      var tencb=$('#tencb').val();
+      var ngaysinh=$('#ngaysinh').val();
+      var gt=$('#gioitinh').val();
+      var diachi=$('#diachi').val();
+      var email=$('#email').val();
+      var soatm=$('#soatm').val();
+      if(macb.length==0 || tencb.length==0 || ngaysinh.length==0 || gt.length==0 || diachi.length==0 || email.length==0 || soatm.length==0 ){
         toastr.error("Vui lòng nhập đầy đủ thông tin");
       }else{
         var hotencb = tencb.trim().split(" ");
@@ -295,33 +317,33 @@
               }
             }
          });
-		//Mở modal xóa
-		$('.mo-modal-xoa').click(function(){
-			$ma=$(this).attr("data-xoa");
-			$("#mscbxoa").val($ma);
-			$('#modal-xoa').modal('show');
-		})
-		//Xóa
-		$('.xoa').click(function(){
-			var congviec="xoa";
-			var ma=$("#mscbxoa").val();
-			$.post('controller/canbo/xuly.php',{congviec:congviec,ma:ma},function(data){
-				if(data=="1"){
-					toastr.success("Xóa thành công");
+    //Mở modal xóa
+    $('.mo-modal-xoa').click(function(){
+      $ma=$(this).attr("data-xoa");
+      $("#mscbxoa").val($ma);
+      $('#modal-xoa').modal('show');
+    })
+    //Xóa
+    $('.xoa').click(function(){
+      var congviec="xoa";
+      var ma=$("#mscbxoa").val();
+      $.post('controller/canbo/xuly.php',{congviec:congviec,ma:ma},function(data){
+        if(data=="1"){
+          toastr.success("Xóa thành công");
           setTimeout(function(){
             location.reload();
           },500)
-				}else{
-					toastr.error("Đã có lỗi xảy ra");
-				}
-			});
-		})
+        }else{
+          toastr.error("Đã có lỗi xảy ra");
+        }
+      });
+    })
 
-		//Cập nhật
-		$('.mo-modal-capnhat').click(function(){
-			$ma=$(this).attr('data-capnhat');
+    //Cập nhật
+    $('.mo-modal-capnhat').click(function(){
+      $ma=$(this).attr('data-capnhat');
 
-			var mang = $("#ngaysinh-"+$ma).text().trim().split("/");
+      var mang = $("#ngaysinh-"+$ma).text().trim().split("/");
             var date = new Date(mang[2] + "-" + mang[1] + "-" + mang[0]);
             var ngay = date.getDate();
             var thang = date.getMonth() + 1;
@@ -334,28 +356,28 @@
             }
             var ctr = nam + "-" + thang + "-" + ngay;
 
-			$('#macbcn').val($ma);
-			$('#tencbcn').val($("#hoten-"+$ma).text());
-			$('#ngaysinhcn').val(ctr);
-			$('#diachicn').val($("#diachi-"+$ma).text());
-			$('#gioitinhcn').val($("#gioitinh-"+$ma).text());
-			$('#emailcn').val($("#email-"+$ma).text());
-			$('#soatmcn').val($("#soatm-"+$ma).text());
+      $('#macbcn').val($ma);
+      $('#tencbcn').val($("#hoten-"+$ma).text());
+      $('#ngaysinhcn').val(ctr);
+      $('#diachicn').val($("#diachi-"+$ma).text());
+      $('#gioitinhcn').val($("#gioitinh-"+$ma).text());
+      $('#emailcn').val($("#email-"+$ma).text());
+      $('#soatmcn').val($("#soatm-"+$ma).text());
 
-			$('#modal-capnhat').modal('show');
-		})
-		//Cập nhật
-		$('.capnhat').click(function(){
-			var congviec="capnhat";
-			var macb=$('#macbcn').val();
-			var tencb=$('#tencbcn').val();
-			var ngaysinh=$('#ngaysinhcn').val();
-			var diachi=$('#diachicn').val();
-			var gioitinh=$('#gioitinhcn').val();
-			var email=$('#emailcn').val();
-			var soatm=$('#soatmcn').val();
-			//alert(macb+tencb+ngaysinh+diachi+gioitinh+email+soatm);
-			if(tencb.length==0 || ngaysinh.length==0 || diachi.length==0 || gioitinh.length==0 || email.length==0 || soatm.length==0 ){
+      $('#modal-capnhat').modal('show');
+    })
+    //Cập nhật
+    $('.capnhat').click(function(){
+      var congviec="capnhat";
+      var macb=$('#macbcn').val();
+      var tencb=$('#tencbcn').val();
+      var ngaysinh=$('#ngaysinhcn').val();
+      var diachi=$('#diachicn').val();
+      var gioitinh=$('#gioitinhcn').val();
+      var email=$('#emailcn').val();
+      var soatm=$('#soatmcn').val();
+      //alert(macb+tencb+ngaysinh+diachi+gioitinh+email+soatm);
+      if(tencb.length==0 || ngaysinh.length==0 || diachi.length==0 || gioitinh.length==0 || email.length==0 || soatm.length==0 ){
         toastr.error("Vui lòng nhập đầy đủ thông tin");
       }else{
         var hotencb = tencb.trim().split(" ");

@@ -24,7 +24,7 @@
 		public function select(){
 			$kn=new Ketnoi();
 			$kn->connect();
-			$this->resuft=mysql_query("select * from bangluong");
+			$this->resuft=mysql_query("SELECT `HoTen`,`SoTKATM`, `TLuongThang`, `TruyLinhLuong`, `BDTheoGio`, `TienLuongTang`, `PCCNV`, `PCLĐ`, `TruyThuTLuong`, `TongSoTien`, `KPCD`, `SoTienCL`,Email FROM bangluong bl,canbo cb WHERE bl.MaCB=cb.MaCB");
 		}
 		public function laybangluong(){
 			if(mysql_num_rows($this->resuft)>0){

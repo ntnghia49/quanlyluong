@@ -70,7 +70,13 @@
                 data:form_data,                    
                 type: 'post',
                 success: function(res){
-                    alert(res);
+                    if(res=="TB")
+                        toastr.error("Có cán bộ không có trong hệ thống");
+                    else{
+                        if(res=="TC"){
+                            toastr.success("Import thành công");
+                        }
+                    }
                 }
             });
         })

@@ -122,6 +122,7 @@
                   <li><a><i class="fa fa-home"></i>Công việc<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.php?xem=<?php echo md5("bangluong") ?>">Import bảng lương</a></li>
+                      <li><a href="index.php?xem=<?php echo md5("hienthibangluong") ?>">Quản lý bảng lương</a></li>
                       <li><a href="index.php?xem=<?php echo md5("qlbangluong") ?>">Quản lý bảng lương</a></li>
                       <li><a href="index.php?xem=<?php echo md5("quanlytaikhoan") ?>">Đổi mật khẩu</a></li>
                     </ul>
@@ -171,7 +172,11 @@
         			if($xem==md5("bangluong")){
         				include('controller/bangluong/bangluongcontrolller.php');
         			}else{
-                    	include('../../View/chaomung.php');
+                if($xem==md5("hienthibangluong")){
+                  include('controller/hienthibangluong/hienthiblcontrolller.php');
+                }else{
+                    include('../../View/chaomung.php');
+                }
               }
             }else{
         			include('../../View/chaomung.php');

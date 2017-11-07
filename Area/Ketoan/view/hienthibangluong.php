@@ -1,3 +1,87 @@
+
+<!--Modal cập nhật -->
+<div class="modal fade" id="modal-capnhat" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">THÔNG TIN LƯƠNG</h4>
+            </div>
+            <div class="modal-body">
+          <form id="demo-form2" action="" method="post" data-parsley-validate class="form-horizontal form-label-left">
+                  <div class="form-group">
+                    <label class="control-label col-md-3">Tiền lương tháng<span class="required">*</span>
+                    </label>
+                    <div class="col-md-9">
+                      <input type="text" id="tlthang" required class="form-control col-md-9">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3">Truy lĩnh lương<span class="required">*</span>
+                    </label>
+                    <div class="col-md-9">
+                      <input type="text" id="truylinhluong" required class="form-control col-md-9">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3">BD theo giờ</label>
+                    <div class="col-md-9">
+                      <input id="bdtheogio" class="form-control col-md-9" type="text">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3">Tiền lương tăng</label>
+                    <div class="col-md-9">
+                      <input id="tienluongtang" class="form-control col-md-9" type="text" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3">PC CNV</label>
+                    <div class="col-md-9">
+                      <input id="pccnv" class="form-control col-md-9" type="text" required>
+                    </div>
+                  </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3">PC lãnh đạo</label>
+                    <div class="col-md-9">
+                      <input id="pclanhdao" class="form-control col-md-9" type="text" required>
+                    </div>
+                  </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3">Truy thu tiền lương</label>
+                    <div class="col-md-9">
+                      <input id="truythutienluong" class="form-control col-md-9" type="text" required>
+                    </div>
+                  </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3">Tổng số tiền</label>
+                    <div class="col-md-9">
+                      <input id="tongsotien" class="form-control col-md-9" type="text" required>
+                    </div>
+                  </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3">Đoàn phí công đoàn</label>
+                    <div class="col-md-9">
+                      <input id="doanphi" class="form-control col-md-9" type="text" required>
+                    </div>
+                  </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3">Tiền còn lại</label>
+                    <div class="col-md-9">
+                      <input id="tienconlai" class="form-control col-md-9" type="text" required>
+                    </div>
+                  </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                <button type="button" name="them" class="btn btn-success capnhat">Cập nhật</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- -->
 <div class="row">
   <div class="col-md-12">
         <div class="x_panel">
@@ -8,22 +92,28 @@
               <div class="col-md-3" style="width: 230px">
                 <label class="control-label" style="float:left;line-height:38px;margin:7px;">Chọn tháng</label>
                 <select style="width: 120px;border-radius: 5px;margin: 10px" class="form-control" id="thang">
-                  <?php $i=1; while ($i<=31) { ?>
-                    <option value="<?php echo $i ?>"><?php echo $i ?></option>
-                  <?php $i++; } ?>
+                  <?php
+                    $bl->selectthangnam();
+                    while($row=$bl->laythang()){
+                  ?>
+                    <option value="<?php echo $row['thang'] ?>"><?php echo $row['thang'] ?></option>
+                  <?php } ?>
                 </select>
               </div>
 
               <div class="col-md-3" style="width: 230px">
                 <label class="control-label" style="float:left;line-height:38px;margin:7px;">Chọn năm</label>
                 <select style="width: 120px;border-radius: 5px;margin: 10px" class="form-control" id="nam">
-                  <?php $i=1990; while ($i<=2080) { ?>
-                    <option value="<?php echo $i ?>"><?php echo $i ?></option>
-                  <?php $i++; } ?>
+                  <?php
+                    $bl->selectthangnam();
+                    while($row=$bl->laythang()){
+                  ?>
+                    <option value="<?php echo $row['nam'] ?>"><?php echo $row['nam'] ?></option>
+                  <?php } ?>
                 </select>
               </div>
               <!-- -->
-
+              <div id="hien">
               <table class="table table-hover tbl" style="width: 1850px">
                 <thead>
                   <tr>
@@ -46,7 +136,9 @@
                 </thead>
                 <tbody>
                   <?php 
-                    $bl->select();
+                    $bl->selectthangnam();
+                    $row=$bl->laythang();
+                    $bl->select($row['thang'],$row['nam']);
                     $i=1;
                     while ($row=$bl->laybangluong()) {
                   ?>
@@ -78,6 +170,7 @@
                   ?>
                 </tbody>
               </table>
+              </div>
           </div>
       </div>
     <div class="x_content">
@@ -104,6 +197,26 @@
         }
     });
     //
-
+    $('#thang').change(function(){
+      var thang=$('#thang').val();
+      var nam=$('#nam').val();
+      $.post('controller/hienthibangluong/hienbl.php',{thang:thang,nam:nam},function(data){
+        $('#hien').html(data);
+      })
+    })
+    //
+    $('#nam').change(function(){
+      var thang=$('#thang').val();
+      var nam=$('#nam').val();
+      $.post('controller/hienthibangluong/hienbl.php',{thang:thang,nam:nam},function(data){
+        $('#hien').html(data);
+      })
+    })
+    //
+    $('.mo-modal-capnhat').click(function(){
+      var ma=$(this).attr('data-capnhat');
+      alert(ma);
+      $('#modal-capnhat').modal('show');
+    })
   })
 </script>

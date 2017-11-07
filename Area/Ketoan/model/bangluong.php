@@ -20,15 +20,34 @@
 		public $Thang=null;
 		public $Nam=null;
 		public $resuft=null;
+		public $resuft1=null;
 
 		public function select(){
 			$kn=new Ketnoi();
 			$kn->connect();
-			$this->resuft=mysql_query("SELECT `HoTen`,`SoTKATM`, `TLuongThang`, `TruyLinhLuong`, `BDTheoGio`, `TienLuongTang`, `PCCNV`, `PCLĐ`, `TruyThuTLuong`, `TongSoTien`, `KPCD`, `SoTienCL`,Email FROM bangluong bl,canbo cb WHERE bl.MaCB=cb.MaCB");
+			$this->resuft=mysql_query("SELECT `MaBL`,`HoTen`,`SoTKATM`, `TLuongThang`, `TruyLinhLuong`, `BDTheoGio`, `TienLuongTang`, `PCCNV`, `PCLĐ`, `TruyThuTLuong`, `TongSoTien`, `KPCD`, `SoTienCL`,Email FROM bangluong bl,canbo cb WHERE bl.MaCB=cb.MaCB");
+		}
+		public function select2($thang,$nam){
+			$kn=new Ketnoi();
+			$kn->connect();
+			$this->resuft=mysql_query("SELECT `MaBL`,0`HoTen`,`SoTKATM`, `TLuongThang`, `TruyLinhLuong`, `BDTheoGio`, `TienLuongTang`, `PCCNV`, `PCLĐ`, `TruyThuTLuong`, `TongSoTien`, `KPCD`, `SoTienCL`,Email FROM bangluong bl,canbo cb WHERE bl.MaCB=cb.MaCB and Thang='$thang' and Nam='$nam'");
+		}
+		public function selectthangnam(){
+			$kn=new Ketnoi();
+			$kn->connect();
+			$this->resuft1=mysql_query("select thang,nam from bangluong group by thang,nam");
 		}
 		public function laybangluong(){
 			if(mysql_num_rows($this->resuft)>0){
 				$row=mysql_fetch_array($this->resuft);
+			}else{
+				$row=null;
+			}
+			return $row;
+		}
+		public function laythang(){
+			if(mysql_num_rows($this->resuft1)>0){
+				$row=mysql_fetch_array($this->resuft1);
 			}else{
 				$row=null;
 			}

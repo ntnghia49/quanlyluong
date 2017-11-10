@@ -88,7 +88,7 @@
 		}
 		public function capnhat(){
 			$kn=new Ketnoi();
-			$kq=$kn->conman("UPDATE `bangluong` SET `TLuongThang`='$this->TLuongThang',`TruyLinhLuong`='$this->TruyLinhLuong',`BDTheoGio`='$this->BDTheoGio',`TienLuongTang`='$this->TienLuongTang',`PCCNV`='$this->PCCNV',`PCLĐ`='$this->PCLD',`TruyThuTLuong`='$this->TruyThuTienLuong',`TongSoTien`='$this->TongSoTien',`KPCD`='$this->KPCD',`SoTienCL`='$this->SoTienCL',`Thang`='$this->Thang',`Nam`='$this->Nam' WHERE `MaBL`='$this->MaBL' ");
+			$kq=$kn->conman("UPDATE `bangluong` SET `TLuongThang`='$this->TLuongThang',`TruyLinhLuong`='$this->TruyLinhLuong',`BDTheoGio`='$this->BDTheoGio',`TienLuongTang`='$this->TienLuongTang',`PCCNV`='$this->PCCNV',`PCLĐ`='$this->PCLD',`TruyThuTLuong`='$this->TruyThuTienLuong',`TongSoTien`='$this->TongSoTien',`KPCD`='$this->KPCD',`SoTienCL`='$this->SoTienCL' WHERE `MaBL`='$this->MaBL'");
 			return $kq;
 		}
 	}

@@ -44,6 +44,7 @@
 
     <!-- jQuery -->
     <script src="../../vendors/jquery/dist/jquery.min.js"></script>
+    <script src="../../JS/jquery-ui.min.js"></script>
     <!-- Bootstrap -->
     <script src="../../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../../vendors/bootstrap/dist/js/bootstrap.js"></script>
@@ -87,7 +88,26 @@
     <script src="../../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <!-- -->
     <script src="../../JS/toastr.min.js"></script>
-	 <script src="../../JS/nprogress.js"></script>
+	  <script src="../../JS/nprogress.js"></script>
+    <script src="../../vendors/autosize/dist/autosize.min.js"></script>
+
+   <script>
+     $(document).ready(function(){
+
+        $(document).ajaxStart(function () {
+                NProgress.start();
+                $('body').after('<div class="loading"></div>');
+            }).ajaxStop(function () {
+                NProgress.done();
+                NProgress.remove();
+                $('.loading').remove();
+        });
+
+        $('.modal').draggable({
+          handle: ".modal-header"
+        });
+     })
+   </script>
   </head>
   <body class="nav-md">
     <div class="container body">
@@ -123,8 +143,15 @@
                     <ul class="nav child_menu">
                       <li><a href="index.php?xem=<?php echo md5("bangluong") ?>">Import bảng lương</a></li>
                       <li><a href="index.php?xem=<?php echo md5("hienthibangluong") ?>">Quản lý bảng lương</a></li>
-                      <li><a href="index.php?xem=<?php echo md5("qlbangluong") ?>">Quản lý bảng lương</a></li>
                       <li><a href="index.php?xem=<?php echo md5("quanlytaikhoan") ?>">Đổi mật khẩu</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-building"></i>Thống kê<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="index.php?xem=<?php echo md5("") ?>">Cá nhân</a></li>
+                      <li><a href="index.php?xem=<?php echo md5("") ?>">Đơn vị</a></li> 
                     </ul>
                   </li>
                 </ul>

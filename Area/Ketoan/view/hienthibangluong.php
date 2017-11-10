@@ -9,6 +9,7 @@
             </div>
             <div class="modal-body">
           <form id="demo-form2" action="" method="post" data-parsley-validate class="form-horizontal form-label-left">
+                  <input type="text" id="mabl" name="" hidden>
                   <div class="form-group">
                     <label class="control-label col-md-3">Tiền lương tháng<span class="required">*</span>
                     </label>
@@ -143,26 +144,26 @@
                     while ($row=$bl->laybangluong()) {
                   ?>
                   <tr>
-                    <td><?php echo $i ?></td>
-                    <td><?php echo $row['HoTen'] ?></td>
-                    <td><?php echo $row['SoTKATM'] ?></td>
-                    <td><?php echo $row['TLuongThang'] ?></td>
-                    <td><?php echo $row['TruyLinhLuong'] ?></td>
-                    <td><?php echo $row['BDTheoGio'] ?></td>
-                    <td><?php echo $row['TienLuongTang'] ?></td>
-                    <td><?php echo $row['PCCNV'] ?></td>
-                    <td><?php echo $row['PCLĐ'] ?></td>
-                    <td><?php echo $row['TruyThuTLuong'] ?></td>
-                    <td><?php echo $row['TongSoTien'] ?></td>
-                    <td><?php echo $row['KPCD']?></td>
-                    <td><?php echo $row['SoTienCL'] ?></td>
-                    <td><?php echo $row['Email'] ?></td>
                     <td>
                       <center>
-                        <a href="#" class="btn btn-round btn-success mo-modal-capnhat" data-capnhat="<?php echo $row['MaBL'] ?>">
+                        <a href="#" style="background: #d35400;border: 1px solid #d35400" class="btn btn-round btn-success mo-modal-capnhat" data-capnhat="<?php echo $row['MaBL'] ?>">
                           <i class="fa fa-pencil"></i>Cập nhật</a>
                       </center>
                     </td>
+                    <td><?php echo $i ?></td>
+                    <td><?php echo $row['HoTen'] ?></td>
+                    <td><?php echo $row['SoTKATM'] ?></td>
+                    <td id="<?php echo $row['MaBL'] ?>-TLuongThang"><?php echo $row['TLuongThang'] ?></td>
+                    <td id="<?php echo $row['MaBL'] ?>-TruyLinhLuong"><?php echo $row['TruyLinhLuong'] ?></td>
+                    <td id="<?php echo $row['MaBL'] ?>-BDTheoGio"><?php echo $row['BDTheoGio'] ?></td>
+                    <td id="<?php echo $row['MaBL'] ?>-TienLuongTang"><?php echo $row['TienLuongTang'] ?></td>
+                    <td id="<?php echo $row['MaBL'] ?>-PCCNV"><?php echo $row['PCCNV'] ?></td>
+                    <td id="<?php echo $row['MaBL'] ?>-PCLĐ"><?php echo $row['PCLĐ'] ?></td>
+                    <td id="<?php echo $row['MaBL'] ?>-TruyThuTLuong"><?php echo $row['TruyThuTLuong'] ?></td>
+                    <td id="<?php echo $row['MaBL'] ?>-TongSoTien"><?php echo $row['TongSoTien'] ?></td>
+                    <td id="<?php echo $row['MaBL'] ?>-KPCD"><?php echo $row['KPCD']?></td>
+                    <td id="<?php echo $row['MaBL'] ?>-SoTienCL"><?php echo $row['SoTienCL'] ?></td>
+                    <td><?php echo $row['Email'] ?></td>
                   </tr>
                   <?php
                         $i++;
@@ -215,8 +216,45 @@
     //
     $('.mo-modal-capnhat').click(function(){
       var ma=$(this).attr('data-capnhat');
-      alert(ma);
+      $('#mabl').val(ma);
+      $('#tlthang').val($('#'+ma+"-TLuongThang").text());
+      $('#truylinhluong').val($('#'+ma+"-TruyLinhLuong").text());
+      $('#bdtheogio').val($('#'+ma+"-BDTheoGio").text());
+      $('#tienluongtang').val($('#'+ma+"-TienLuongTang").text());
+      $('#pccnv').val($('#'+ma+"-PCCNV").text());
+      $('#pclanhdao').val($('#'+ma+"-PCLĐ").text());
+      $('#truythutienluong').val($('#'+ma+"-TruyThuTLuong").text());
+      $('#tongsotien').val($('#'+ma+"-TongSoTien").text());
+      $('#doanphi').val($('#'+ma+"-KPCD").text());
+      $('#tienconlai').val($('#'+ma+"-SoTienCL").text());
+
       $('#modal-capnhat').modal('show');
+    })
+    //
+    $('.capnhat').click(function(){
+      var ma=$('#mabl').val();
+      var tlthang=$('#tlthang').val();
+      var truylinhluong=$('#truylinhluong').val();
+      var bdtheogio=$('#bdtheogio').val();
+      var tienluongtang=$('#tienluongtang').val();
+      var pccnv=$('#pccnv').val();
+      var pclanhdao=$('#pclanhdao').val();
+      var truythutienluong=$('#truythutienluong').val();
+      var tongsotien=$('#tongsotien').val();
+      var doanphi=$('#doanphi').val();
+      var tienconlai=$('#tienconlai').val();
+      $.post('controller/hienthibangluong/capnhatbl.php',{ma:ma,tlthang:tlthang,truylinhluong:truylinhluong,bdtheogio:bdtheogio,tienluongtang:tienluongtang,pccnv:pccnv,pclanhdao:pclanhdao,truythutienluong:truythutienluong,tongsotien:tongsotien,doanphi:doanphi,tienconlai:tienconlai},function(data){
+        //$('#loi').val(data);
+        if(data="TC"){
+          toastr.success("Cập nhật thành công");
+          setTimeout(function(){
+            location.reload();
+          },500)
+        }else{
+          if(data="TB")
+            toastr.error("Đã có lỗi xảy ra");
+        }
+      })
     })
   })
 </script>

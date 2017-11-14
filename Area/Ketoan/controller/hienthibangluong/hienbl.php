@@ -12,7 +12,7 @@
       <th>TKATM</th>
       <th>Tiền lương tháng</th>
       <th>Truy lĩnh lương</th>
-      <th>BD theo giời</th>
+      <th>BD theo giờ</th>
       <th>Tiền lương tăng</th>
       <th>PCCNV</th>
       <th>PCLĐ</th>

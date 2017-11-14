@@ -7,12 +7,13 @@
 <table class="table table-hover tbl" style="width: 1850px">
   <thead>
     <tr>
+      <th>Quản lý</th>
       <th>STT</th>
       <th>Họ tên</th>
       <th>TKATM</th>
       <th>Tiền lương tháng</th>
       <th>Truy lĩnh lương</th>
-      <th>BD theo giời</th>
+      <th>BD theo giờ</th>
       <th>Tiền lương tăng</th>
       <th>PCCNV</th>
       <th>PCLĐ</th>
@@ -21,7 +22,6 @@
       <th>KPCD</th>
       <th>Còn lại</th>
       <th>Email</th>
-      <th>Quản lý</th>
     </tr>
   </thead>
   <tbody>
@@ -31,6 +31,12 @@
       while ($row=$bl->laybangluong()) {
     ?>
     <tr>
+      <td>
+        <center>
+          <a href="#" style="background: #d35400;border: 1px solid #d35400" class="btn btn-round btn-success mo-modal-capnhat" data-capnhat="<?php echo $row['MaBL'] ?>">
+            <i class="fa fa-pencil"></i>Cập nhật</a>
+        </center>
+      </td>
       <td><?php echo $i ?></td>
       <td><?php echo $row['HoTen'] ?></td>
       <td><?php echo $row['SoTKATM'] ?></td>
@@ -45,12 +51,6 @@
       <td><?php echo $row['KPCD']?></td>
       <td><?php echo $row['SoTienCL'] ?></td>
       <td><?php echo $row['Email'] ?></td>
-      <td>
-        <center>
-          <a href="#" class="btn btn-round btn-success mo-modal-capnhat" data-capnhat="<?php echo $row['MaBL'] ?>">
-            <i class="fa fa-pencil"></i>Cập nhật</a>
-        </center>
-      </td>
     </tr>
     <?php
           $i++;

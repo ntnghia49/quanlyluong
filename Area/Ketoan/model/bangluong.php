@@ -30,7 +30,7 @@
 		public function select2($thang,$nam){
 			$kn=new Ketnoi();
 			$kn->connect();
-			$this->resuft=mysql_query("SELECT `MaBL`,0`HoTen`,`SoTKATM`, `TLuongThang`, `TruyLinhLuong`, `BDTheoGio`, `TienLuongTang`, `PCCNV`, `PCLĐ`, `TruyThuTLuong`, `TongSoTien`, `KPCD`, `SoTienCL`,Email FROM bangluong bl,canbo cb WHERE bl.MaCB=cb.MaCB and Thang='$thang' and Nam='$nam'");
+			$this->resuft=mysql_query("SELECT `MaBL`,`HoTen`,`SoTKATM`, `TLuongThang`, `TruyLinhLuong`, `BDTheoGio`, `TienLuongTang`, `PCCNV`, `PCLĐ`, `TruyThuTLuong`, `TongSoTien`, `KPCD`, `SoTienCL`,Email FROM bangluong bl,canbo cb WHERE bl.MaCB=cb.MaCB and Thang='$thang' and Nam='$nam'");
 		}
 		public function selectthangnam(){
 			$kn=new Ketnoi();
@@ -61,7 +61,7 @@
 		public function laymacb($hoten){
 			$kn=new Ketnoi();
 			$kn->connect();
-			$this->resuft=mysql_query("select MaCB from canbo where HoTen='$hoten'");
+			$this->resuft=mysql_query("select MaCB from canbo where HoTen LIKE '%$hoten%'");
 			if(mysql_num_rows($this->resuft)>0){
 				$row=mysql_fetch_array($this->resuft);
 				return $row['MaCB'];

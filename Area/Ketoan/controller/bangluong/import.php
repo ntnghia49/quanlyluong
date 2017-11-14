@@ -17,21 +17,24 @@
 
 	    //
 	    //echo $thang.$nam.$sheet;
-	    //print_r($sheetsdata);
+	   	//print_r($sheetsdata);
 	    //Lấy dòng cao nhất;
 	    $dong=$objExcel->setActiveSheetIndex()->getHighestRow();
 	    //echo $dong;
 	    //echo "<br>";
 	    //
 	    $dem=0;
-	    for ($i=1; $i <= $dong; $i++) {
-	    	$macb=$bl->laymacb($sheetsdata[$i]['B']);
+	    for ($i=2; $i <= $dong; $i++) {
+	    	$hoten=$sheetsdata[$i]['B'];
+	    	$macb=$bl->laymacb($hoten);
 	    	if($macb=="0"){
 	    		$dem++;
 	    	}
+	    	//echo $macb." ";
 	    }
+	    //echo $dem;
 	    if($dem==0){
-	    	for ($i=1; $i <= $dong; $i++) {
+	    	for ($i=2; $i <= $dong; $i++) {
 	    		$bl->MaCB=$bl->laymacb($sheetsdata[$i]['B']);
 	    		$bl->TLuongThang=$sheetsdata[$i]['D'];
 	    		$bl->TruyLinhLuong=$sheetsdata[$i]['E'];

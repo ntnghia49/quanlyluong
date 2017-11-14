@@ -118,12 +118,13 @@
               <table class="table table-hover tbl" style="width: 1850px">
                 <thead>
                   <tr>
+                    <th>Quản lý</th>
                     <th>STT</th>
                     <th>Họ tên</th>
                     <th>TKATM</th>
                     <th>Tiền lương tháng</th>
                     <th>Truy lĩnh lương</th>
-                    <th>BD theo giời</th>
+                    <th>BD theo giờ</th>
                     <th>Tiền lương tăng</th>
                     <th>PCCNV</th>
                     <th>PCLĐ</th>
@@ -132,7 +133,6 @@
                     <th>KPCD</th>
                     <th>Còn lại</th>
                     <th>Email</th>
-                    <th>Quản lý</th>
                   </tr>
                 </thead>
                 <tbody>

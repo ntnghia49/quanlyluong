@@ -77,7 +77,8 @@
             </div>
             <div class="modal-body">
               <input type="text" name="mscbxoa" id="mscbxoa" hidden>
-              Bạn có muốn xóa?
+                <img src="../../image/cb.png" style="margin: 0px auto">
+                Bạn có muốn xóa?
                 <br />
                 Khi xóa, thông tin về cán bộ không thể phục hồi lại được.
             </div>
@@ -168,17 +169,18 @@
                 <h1 style="color:#3498db">DANH SÁCH CÁN BỘ</h1>
               <div class="clearfix"></div>
               <button type="button" class="btn btn-info btn-lg mo-modal-them">Thêm cán bộ</button>
-              <table class="table table-hover tbl" width="100%">
+              <table class="table table-hover tbl" style="width: 100%;">
         <thead>
           <tr>
-            <th class="column-title">Mã cán bộ</th>
-            <th class="column-title">Họ tên</th>
-            <th class="column-title">Ngày sinh</th>
-            <th class="column-title">Giới tính</th>
-            <th class="column-title">Địa chỉ</th>
-            <th class="column-title">Email</th>
-            <th class="column-title">Số TK ATM</th>
-            <th class="column-title"><center>Thao tác<center></th>
+            <th>Mã cán bộ</th>
+            <th>Họ tên</th>
+            <th>Ngày sinh</th>
+            <th>Giới tính</th>
+            <th>Địa chỉ</th>
+            <th>Email</th>
+            <th>Số TK ATM</th>
+            <th><center>Sửa<center></th>
+            <th><center>Xóa<center></th>
           </tr>
         </thead>
         <tbody>
@@ -198,10 +200,12 @@
                   <a href="#" class="btn btn-round btn-success mo-modal-capnhat" data-capnhat="<?php echo $row['MaCB'] ?>">
                     <i class="fa fa-pencil"></i> Sửa
                   </a>
-                  <a href="#" class="btn btn-round btn-danger mo-modal-xoa" data-xoa="<?php echo $row['MaCB']?>">
+                </center>
+              </td>
+              <td>
+                <a href="#" class="btn btn-round btn-danger mo-modal-xoa" data-xoa="<?php echo $row['MaCB']?>">
                     <i class="fa fa-trash"></i> Xóa
                   </a>
-                </center>
               </td>
             </tr>
         <?php

@@ -139,7 +139,9 @@
                   <?php 
                     $bl->selectthangnam();
                     $row=$bl->laythang();
-                    $bl->select($row['thang'],$row['nam']);
+                    $thang=$row['thang'];
+                    $nam=$row['nam'];
+                    $bl->select2($thang,$nam);
                     $i=1;
                     while ($row=$bl->laybangluong()) {
                   ?>

@@ -62,5 +62,21 @@
 			$kq=$kn->conman("UPDATE `taikhoan` SET `MaQ`='$this->MaQ' WHERE MaTK='$this->MaTK'");
 			return $kq;
 		}
+		public function doimatkhau($mkmoi){
+			$kn=new Ketnoi();
+			$kq=$kn->conman("UPDATE `taikhoan` SET `MatKhau`='$mkmoi' WHERE TenDN='$this->TenDN' and MatKhau='$this->MatKhau'");
+			return $kq;
+		}
+		public function selectmk($tdn,$mk){
+			$kn=new Ketnoi();
+			$kn->connect();
+			$this->resuft=mysql_query("select * from taikhoan WHERE TenDN='$tdn' and MatKhau='$mk'");
+		}
+		public function kiemtra(){
+			$kn=new Ketnoi();
+			if(mysql_num_rows($this->resuft)>0)
+				return 1;
+			return 0;
+		}
 	}
 ?>

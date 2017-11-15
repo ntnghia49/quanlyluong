@@ -143,7 +143,6 @@
                     <ul class="nav child_menu">
                       <li><a href="index.php?xem=<?php echo md5("bangluong") ?>">Import bảng lương</a></li>
                       <li><a href="index.php?xem=<?php echo md5("hienthibangluong") ?>">Quản lý bảng lương</a></li>
-                      <li><a href="index.php?xem=<?php echo md5("quanlytaikhoan") ?>">Đổi mật khẩu</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -152,6 +151,13 @@
                     <ul class="nav child_menu">
                       <li><a href="index.php?xem=<?php echo md5("") ?>">Cá nhân</a></li>
                       <li><a href="index.php?xem=<?php echo md5("") ?>">Đơn vị</a></li> 
+                    </ul>
+                  </li>
+                </ul>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-building"></i>Cá nhân<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="index.php?xem=<?php echo md5("thongtincanhan") ?>">Thông tin cá nhân</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -202,7 +208,11 @@
                 if($xem==md5("hienthibangluong")){
                   include('controller/hienthibangluong/hienthiblcontrolller.php');
                 }else{
+                  if($xem==md5("thongtincanhan")){
+                    include('controller/canhan/thongtincanhan.php');
+                  }else{
                     include('../../View/chaomung.php');
+                  }
                 }
               }
             }else{

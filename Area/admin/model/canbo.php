@@ -16,7 +16,12 @@
 			$kn->connect();
 			$this->resuft=mysql_query("select * from canbo");
 		}
-
+		
+		public function selectcanhan($tendn){
+			$kn=new Ketnoi();
+			$kn->connect();
+			$this->resuft=mysql_query("select * from canbo where MaCB=(select MaCB from taikhoan where TenDN='$tendn')");
+		}
 		public function laydanhsachcanbo(){
 			if(mysql_num_rows($this->resuft)>0){
 				$row=mysql_fetch_array($this->resuft);

@@ -2,7 +2,7 @@
 	<div class="col-md-12">
         <div class="x_panel">
             <div class="x_title">
-                <h1 style="color:#3498db">BẢNG LƯƠNG</h1>
+                <h1 style="color:hsl(0, 96%, 49%);font-size:21px;font-weight:bold;text-align:center;">IMPORT BẢNG LƯƠNG</h1>
             	<div class="clearfix"></div>
         	</div>
         	<form id="files" method="post" enctype="multipart/form-data">
@@ -39,6 +39,7 @@
             	</div>
         	</div>
         	</form>
+            <p style="color: red;margin: 10px">Chú ý: Chọn đúng ngày tháng năm, chọn sheet cần import ( lưu ý chọn đúng sheet cần import )!</p>
     	</div>
 
     	<!-- -->
@@ -76,6 +77,10 @@
                     else{
                         if(res=="TC"){
                             toastr.success("Import thành công");
+                        }else{
+                            if(res=="TT"){
+                                toastr.error("Dữ liệu tháng này đã có trong hệ thống");
+                            }
                         }
                     }
                 }

@@ -1,29 +1,47 @@
 <style type="text/css">
   .thongtin{
-    width: 600px;
+    width: 720px;
     height: auto;
     margin: 0px auto;
-    border: 4px solid #46AC84;
-    border-radius: 5px;
+    border: 4px solid #0905fb;
+    border-radius: 10px;
   }
   .hienchu{
-    width: 500px;
+    width: 720px;
     height: auto;
     margin: 0px auto;
-    margin-left: 100px;
     padding: 10px;
   }
   .chu{
     font-size: 20px;
-    color: #2a3f54;
+    color: #000;
     font-weight: bold;
   }
   .noidung{
     font-size: 20px;
     margin-left: 14px;
+    color: #F70909;
+    font-weight: bold;
   }
   .x_title span{
     color: rgba(232, 4, 4, 0.84);
+  }
+  .tieude{
+    width: 208px;
+    height: auto;
+    float: left;
+    margin-left: 83px;
+  }
+  .nd{
+    width: 400px;
+    height: auto;
+    float: left;
+  }
+  .nut{
+    width: 220px;
+    height: auto;
+    margin: 0px auto;
+    margin-bottom: 10px;
   }
 </style>
 
@@ -33,7 +51,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">THÔNG TIN CÁN BỘ</h4>
+                <h4 class="modal-title" id="myModalLabel">THÔNG TIN CÁ NHÂN</h4>
             </div>
             <div class="modal-body">
         <div class="row">
@@ -143,18 +161,31 @@
   <div class="col-md-12">
         <div class="x_panel">
             <div class="x_title">
-              <h1 style="color:#3498db;text-align: center;">THÔNG TIN CÁ NHÂN</h1>
-              <div class="clearfix"></div>
               <!-- -->
                 <div class="thongtin">
+                  <h1 style="color: #0905fb;text-align: center;font-size: 31px;font-weight: bold;margin-top: 20px;">THÔNG TIN CÁ NHÂN</h1>
+                  <div class="clearfix"></div>
                   <div class="hienchu">
-                    <p class="chu">Mã cán bộ: <span class="noidung macb"><?php echo $row['MaCB'] ?></span></p>
-                    <p class="chu">Họ tên: <span class="noidung hoten"><?php echo $row['HoTen'] ?></span></p>
-                    <p class="chu">Ngày sinh: <span class="noidung ngaysinh"><?php echo $row['NgaySinh'] ?></span></p>
-                    <p class="chu">Giới tính: <span class="noidung gioitinh"><?php echo $row['GioiTinh'] ?></span></p>
-                    <p class="chu">Địa chỉ: <span class="noidung diachi"><?php echo $row['DiaChi'] ?></span></p>
-                    <p class="chu">Email: <span class="noidung email"><?php echo $row['Email'] ?></span></p>
-                    <p class="chu">Số TKATM: <span class="noidung sotk"><?php echo $row['SoTKATM'] ?></span></p>
+                    <div class="tieude">
+                      <p class="chu">Mã cán bộ:</p>
+                      <p class="chu">Họ tên:</p>
+                      <p class="chu">Ngày sinh:</p>
+                      <p class="chu">Giới tính:</p>
+                      <p class="chu">Địa chỉ:</p>
+                      <p class="chu">Email:</p>
+                      <p class="chu">Số tài khoản ATM:</p>
+                    </div>
+                    <div class="nd">
+                      <p class="noidung macb"><?php echo $row['MaCB'] ?></p>
+                      <p class="noidung hoten"><?php echo $row['HoTen'] ?></p>
+                      <p class="noidung ngaysinh"><?php echo $row['NgaySinh'] ?></p>
+                      <p class="noidung gioitinh"><?php echo $row['GioiTinh'] ?></p>
+                      <p class="noidung diachi"><?php echo $row['DiaChi'] ?></p>
+                      <p class="noidung email"><?php echo $row['Email'] ?></p>
+                      <p class="noidung sotk"><?php echo $row['SoTKATM'] ?></p>
+                    </div>
+                  </div>
+                  <div class="nut">
                     <button type="button" class="btn btn-danger doi">Đổi mật khẩu</button>
                     <button type="button" class="btn btn-success capnhat">Cập nhật</button>
                   </div>

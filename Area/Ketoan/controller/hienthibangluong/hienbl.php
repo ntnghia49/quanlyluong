@@ -40,16 +40,16 @@
       <td><?php echo $i ?></td>
       <td><?php echo $row['HoTen'] ?></td>
       <td><?php echo $row['SoTKATM'] ?></td>
-      <td><?php echo $row['TLuongThang'] ?></td>
-      <td><?php echo $row['TruyLinhLuong'] ?></td>
-      <td><?php echo $row['BDTheoGio'] ?></td>
-      <td><?php echo $row['TienLuongTang'] ?></td>
-      <td><?php echo $row['PCCNV'] ?></td>
-      <td><?php echo $row['PCLĐ'] ?></td>
-      <td><?php echo $row['TruyThuTLuong'] ?></td>
-      <td><?php echo $row['TongSoTien'] ?></td>
-      <td><?php echo $row['KPCD']?></td>
-      <td><?php echo $row['SoTienCL'] ?></td>
+      <td id="<?php echo $row['MaBL'] ?>-TLuongThang"><?php echo $row['TLuongThang'] ?></td>
+      <td id="<?php echo $row['MaBL'] ?>-TruyLinhLuong"><?php echo $row['TruyLinhLuong'] ?></td>
+      <td id="<?php echo $row['MaBL'] ?>-BDTheoGio"><?php echo $row['BDTheoGio'] ?></td>
+      <td id="<?php echo $row['MaBL'] ?>-TienLuongTang"><?php echo $row['TienLuongTang'] ?></td>
+      <td id="<?php echo $row['MaBL'] ?>-PCCNV"><?php echo $row['PCCNV'] ?></td>
+      <td id="<?php echo $row['MaBL'] ?>-PCLĐ"><?php echo $row['PCLĐ'] ?></td>
+      <td id="<?php echo $row['MaBL'] ?>-TruyThuTLuong"><?php echo $row['TruyThuTLuong'] ?></td>
+      <td id="<?php echo $row['MaBL'] ?>-TongSoTien"><?php echo $row['TongSoTien'] ?></td>
+      <td id="<?php echo $row['MaBL'] ?>-KPCD"><?php echo $row['KPCD']?></td>
+      <td id="<?php echo $row['MaBL'] ?>-SoTienCL"><?php echo $row['SoTienCL'] ?></td>
       <td><?php echo $row['Email'] ?></td>
     </tr>
     <?php
@@ -75,5 +75,22 @@
           }
         }
     });
+    //
+    $('.mo-modal-capnhat').click(function(){
+      var ma=$(this).attr('data-capnhat');
+      $('#mabl').val(ma);
+      $('#tlthang').val($('#'+ma+"-TLuongThang").text());
+      $('#truylinhluong').val($('#'+ma+"-TruyLinhLuong").text());
+      $('#bdtheogio').val($('#'+ma+"-BDTheoGio").text());
+      $('#tienluongtang').val($('#'+ma+"-TienLuongTang").text());
+      $('#pccnv').val($('#'+ma+"-PCCNV").text());
+      $('#pclanhdao').val($('#'+ma+"-PCLĐ").text());
+      $('#truythutienluong').val($('#'+ma+"-TruyThuTLuong").text());
+      $('#tongsotien').val($('#'+ma+"-TongSoTien").text());
+      $('#doanphi').val($('#'+ma+"-KPCD").text());
+      $('#tienconlai').val($('#'+ma+"-SoTienCL").text());
+
+      $('#modal-capnhat').modal('show');
+    })
   })
 </script>

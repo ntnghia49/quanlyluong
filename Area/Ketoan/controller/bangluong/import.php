@@ -33,26 +33,31 @@
 	    	//echo $macb." ";
 	    }
 	    //echo $dem;
-	    if($dem==0){
-	    	for ($i=2; $i <= $dong; $i++) {
-	    		$bl->MaCB=$bl->laymacb($sheetsdata[$i]['B']);
-	    		$bl->TLuongThang=$sheetsdata[$i]['D'];
-	    		$bl->TruyLinhLuong=$sheetsdata[$i]['E'];
-	    		$bl->BDTheoGio=$sheetsdata[$i]['F'];
-	    		$bl->TienLuongTang=$sheetsdata[$i]['G'];
-	    		$bl->PCCNV=$sheetsdata[$i]['H'];
-	    		$bl->PCLD=$sheetsdata[$i]['I'];
-	    		$bl->TruyThuTienLuong=$sheetsdata[$i]['J'];
-	    		$bl->TongSoTien=$sheetsdata[$i]['K'];
-	    		$bl->KPCD=$sheetsdata[$i]['L'];
-	    		$bl->SoTienCL=$sheetsdata[$i]['M'];
-	    		$bl->Thang=$thang;
-	    		$bl->Nam=$nam;
-	    		$kq=$bl->them();
-	    	}
-	    	echo "TC";
-	    }else{
-	    	echo "TB";
-	    }
+	    $ktthang=$bl->kiemtrathang($thang,$nam);
+	    if($ktthang==0){
+		    if($dem==0){
+		    	for ($i=2; $i <= $dong; $i++) {
+		    		$bl->MaCB=$bl->laymacb($sheetsdata[$i]['B']);
+		    		$bl->TLuongThang=$sheetsdata[$i]['D'];
+		    		$bl->TruyLinhLuong=$sheetsdata[$i]['E'];
+		    		$bl->BDTheoGio=$sheetsdata[$i]['F'];
+		    		$bl->TienLuongTang=$sheetsdata[$i]['G'];
+		    		$bl->PCCNV=$sheetsdata[$i]['H'];
+		    		$bl->PCLD=$sheetsdata[$i]['I'];
+		    		$bl->TruyThuTienLuong=$sheetsdata[$i]['J'];
+		    		$bl->TongSoTien=$sheetsdata[$i]['K'];
+		    		$bl->KPCD=$sheetsdata[$i]['L'];
+		    		$bl->SoTienCL=$sheetsdata[$i]['M'];
+		    		$bl->Thang=$thang;
+		    		$bl->Nam=$nam;
+		    		$kq=$bl->them();
+		    	}
+		    	echo "TC";
+		    }else{
+		    	echo "TB";
+		    }
+		}else{
+			echo "TT";
+		}
   	}
 ?>

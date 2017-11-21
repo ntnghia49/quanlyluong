@@ -77,6 +77,15 @@
 			}
 			return 0;
 		}
+		public function kiemtrathang($thang,$nam){
+			$kn=new Ketnoi();
+			$kn->connect();
+			$this->resuft=mysql_query("select * from bangluong where thang='$thang' and nam='$nam'");
+			if(mysql_num_rows($this->resuft)>0){
+				return 1;
+			}
+			return 0;
+		}
 		function rand_string($length) {
 			$chars='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 			$size=strlen($chars);
@@ -90,6 +99,18 @@
 			$kn=new Ketnoi();
 			$kq=$kn->conman("UPDATE `bangluong` SET `TLuongThang`='$this->TLuongThang',`TruyLinhLuong`='$this->TruyLinhLuong',`BDTheoGio`='$this->BDTheoGio',`TienLuongTang`='$this->TienLuongTang',`PCCNV`='$this->PCCNV',`PCLĐ`='$this->PCLD',`TruyThuTLuong`='$this->TruyThuTienLuong',`TongSoTien`='$this->TongSoTien',`KPCD`='$this->KPCD',`SoTienCL`='$this->SoTienCL' WHERE `MaBL`='$this->MaBL'");
 			return $kq;
+		}
+		public function capnhattrangthai(){
+			$kn=new Ketnoi();
+			$kq=$kn->conman("UPDATE `bangluong` SET TrangThai='1' WHERE `MaBL`='$this->MaBL'");
+			return $kq;
+		}
+		public function kiemtratrangthai($thang,$nam){
+			$kn=new Ketnoi();
+			$kn->connect();
+			$this->resuft=mysql_query("select * from bangluong where thang='$thang' and nam='$nam'");
+			$row=mysql_fetch_array($this->resuft);
+			return $row['TrangThai'];
 		}
 	}
 ?>

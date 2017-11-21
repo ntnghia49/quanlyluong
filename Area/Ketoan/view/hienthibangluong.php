@@ -87,7 +87,16 @@
   <div class="col-md-12">
         <div class="x_panel">
             <div class="x_title">
-              <h1 style="color:#3498db">QUẢN LÝ BẢNG LƯƠNG</h1>
+              <h1 style="color:hsl(0, 96%, 49%);font-size:21px;font-weight:bold;text-align:center;">QUẢN LÝ BẢNG LƯƠNG</h1>
+              <ul class="nav navbar-right panel_toolbox">
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                </li>
+                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+              </ul>
               <div class="clearfix"></div>
               <!-- -->
               <div class="col-md-3" style="width: 230px">
@@ -112,6 +121,9 @@
                     <option value="<?php echo $row['nam'] ?>"><?php echo $row['nam'] ?></option>
                   <?php } ?>
                 </select>
+              </div>
+              <div class="col-md-3" style="width: 150px;float: right;">
+                <button type="button" style="width:130px;height:48px;background:#0dab11;border:1px solid #0dab11;" class="btn btn-success mail"><span style="color: #FFF;font-size: 17px;"><i class="fa fa-envelope-o" aria-hidden="true"></i> Gửi mail</span></button>
               </div>
               <!-- -->
               <div id="hien">
@@ -257,6 +269,26 @@
             toastr.error("Đã có lỗi xảy ra");
         }
       })
+    })
+    //Mail
+    $('.mail').click(function(){
+      var ngayhientai = new Date;
+      var thang=ngayhientai.getMonth();
+      var thangchon=$('#thang').val();
+      var namchon=$('#nam').val();
+      if(thangchon!=thang)
+        toastr.error('Có lỗi xảy ra');
+      else{
+        $.post('controller/mail/guimail.php',{thangchon:thangchon,namchon:namchon},function(data){
+          if(data=="DG"){
+            toastr.error("Tháng này đã gửi mail rồi");
+          }else{
+            alert(data);
+          }
+          //alert(data);
+        })
+      }
+    //
     })
   })
 </script>

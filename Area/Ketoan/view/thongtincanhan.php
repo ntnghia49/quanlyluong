@@ -178,7 +178,11 @@
                     <div class="nd">
                       <p class="noidung macb"><?php echo $row['MaCB'] ?></p>
                       <p class="noidung hoten"><?php echo $row['HoTen'] ?></p>
-                      <p class="noidung ngaysinh"><?php echo $row['NgaySinh'] ?></p>
+                      <?php 
+                        $date=date_create($row['NgaySinh']);
+                        $ngay=date_format($date,"d-m-Y");
+                       ?>
+                      <p class="noidung ngaysinh"><?php echo $ngay; ?></p>
                       <p class="noidung gioitinh"><?php echo $row['GioiTinh'] ?></p>
                       <p class="noidung diachi"><?php echo $row['DiaChi'] ?></p>
                       <p class="noidung email"><?php echo $row['Email'] ?></p>

@@ -150,7 +150,7 @@
                   <li><a><i class="fa fa-building"></i>Thống kê<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.php?xem=<?php echo md5("") ?>">Cá nhân</a></li>
-                      <li><a href="index.php?xem=<?php echo md5("") ?>">Đơn vị</a></li> 
+                      <li><a href="index.php?xem=<?php echo md5("tkdonvi") ?>">Đơn vị</a></li> 
                     </ul>
                   </li>
                 </ul>
@@ -211,7 +211,11 @@
                   if($xem==md5("thongtincanhan")){
                     include('controller/canhan/thongtincanhan.php');
                   }else{
-                    include('../../View/chaomung.php');
+                    if($xem==md5("tkdonvi")){
+                      include('controller/thongke/thongkedonvi.php');
+                    }else{
+                      include('../../View/chaomung.php');
+                    }
                   }
                 }
               }

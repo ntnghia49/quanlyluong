@@ -40,6 +40,7 @@
 	$i=0;
 	$objPHPExcel->setActiveSheetIndex(0);
 	while($row=$bl->laybangluong()){
+
 		$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(0,$i,$i);
 		$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(1,$i,$row['HoTen']);
 		$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(2,$i,$row['SoTKATM']);

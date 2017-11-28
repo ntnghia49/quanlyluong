@@ -149,7 +149,6 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-building"></i>Thống kê<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.php?xem=<?php echo md5("") ?>">Cá nhân</a></li>
                       <li><a href="index.php?xem=<?php echo md5("tkdonvi") ?>">Đơn vị</a></li> 
                     </ul>
                   </li>

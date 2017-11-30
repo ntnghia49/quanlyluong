@@ -38,26 +38,27 @@
 	//$this->PhpExcel->addTableHeader($table, array('bold' => true));
 	//
 	//
-	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(0,0,$i);
-	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(1,0,'HỌ TÊN');
-	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(2,0,'SỐ TÀI KHOẢN ATM');
-	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(3,0,'TIỀN LƯƠNG THÁNG'.$thang."/".$nam);
-	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(4,0,'TRUY LĨNH LƯƠNG, TIỀN CÔNG, ƯĐGV, TNNG đến tháng'.($thang-1)."/".$nam);
-	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(5,0,'BD THEO GIỜ LÀM VIỆC'.($thang-1)."/".$nam);
-	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(6,0,'TIỀN LƯƠNG TĂNG THÊM'.($thang-1)."/".$nam);
-	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(7,0,'PHỤ CẤP CNV (20%)'.($thang-1)."/".$nam);
-	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(8,0,' PC LÃNH ĐẠO'.($thang-1)."/".$nam);
-	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(9,0,' TRUY THU TIỀN LƯƠNG, PCUDGV, PCTNNG'.($thang+1)."/".($nam-1));
-	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(10,0,'TỔNG SỐ TIỀN ĐƯỢC NHẬN');
-	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(11,0,' TRỪ ĐOÀN PHÍ CÔNG ĐOÀN QUÝ 3'."/".$nam);
-	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(12,0,'SỐ TIỀN CÒN ĐƯỢC NHẬN');
-	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(13,0,'EMAIL');	
-	//
-	$i=1;
 	$objPHPExcel->setActiveSheetIndex(0);
+
+	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(0,1,"STT");
+	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(1,1,'HỌ TÊN');
+	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(2,1,'SỐ TÀI KHOẢN ATM');
+	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(3,1,'TIỀN LƯƠNG THÁNG '.$thang."/".$nam);
+	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(4,1,'TRUY LĨNH LƯƠNG, TIỀN CÔNG, ƯĐGV, TNNG đến tháng '.($thang-1)."/".$nam);
+	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(5,1,'BD THEO GIỜ LÀM VIỆC '.($thang-1)."/".$nam);
+	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(6,1,'TIỀN LƯƠNG TĂNG THÊM '.($thang-1)."/".$nam);
+	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(7,1,'PHỤ CẤP CNV (20%) '.($thang-1)."/".$nam);
+	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(8,1,'PC LÃNH ĐẠO '.($thang-1)."/".$nam);
+	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(9,1,'TRUY THU TIỀN LƯƠNG, PCUDGV, PCTNNG '.($thang+1)."/".($nam-1));
+	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(10,1,'TỔNG SỐ TIỀN ĐƯỢC NHẬN ');
+	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(11,1,'TRỪ ĐOÀN PHÍ CÔNG ĐOÀN QUÝ 3 '."/".$nam);
+	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(12,1,'SỐ TIỀN CÒN ĐƯỢC NHẬN ');
+	$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(13,1,'EMAIL ');	
+	//
+	$i=2;
 	while($row=$bl->laybangluong()){
 
-		$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(0,$i,$i);
+		$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(0,$i,($i-1));
 		$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(1,$i,$row['HoTen']);
 		$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(2,$i,$row['SoTKATM']);
 		$objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(3,$i,$row['TLuongThang']);

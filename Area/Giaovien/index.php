@@ -139,11 +139,15 @@
               <div class="menu_section">
                 <h3>Danh mục</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i>Chức năng<span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-home"></i>Quản lý thông tin<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.php?xem=<?php echo md5("thongtincanhan") ?>">Thông tin cá nhân</a></li>
+                    </ul>
+                    <li><a><i class="fa fa-user-secret"></i>Xem lương<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
                       <li><a href="index.php?xem=<?php echo md5("xemluong") ?>">Xem lương</a></li>
                     </ul>
+                  </li>
                   </li>
                 </ul>
               </div>

@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Quản lý lương | </title>
+    <title>Quản lý lương</title>
      <!-- Bootstrap -->
     <link href="../../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -119,11 +119,19 @@
               <div class="menu_section">
                 <h3>Danh mục</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i>Quản lý<span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-users"></i> Quản lý tài khoản <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="index.php?xem=<?php echo md5("quanlytaikhoan") ?>">Quản lý tài khoản</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-user"></i>Quản lý cán bộ<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.php?xem=<?php echo md5("quanlycanbo") ?>">Quản lý cán bộ</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-list-alt"></i> Quản lý quyền hạn <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
                       <li><a href="index.php?xem=<?php echo md5("quanlyquyen") ?>">Cập nhật quyền</a></li>
-                      <li><a href="index.php?xem=<?php echo md5("quanlytaikhoan") ?>">Quản lý tài khoản</a></li>
                     </ul>
                   </li>
                 </ul>

@@ -139,7 +139,7 @@
               <div class="menu_section">
                 <h3>Danh mục</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i>Công việc<span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-user-secret"></i>Quản lý lương<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.php?xem=<?php echo md5("bangluong") ?>">Import bảng lương</a></li>
                       <li><a href="index.php?xem=<?php echo md5("hienthibangluong") ?>">Quản lý bảng lương</a></li>
@@ -154,7 +154,7 @@
                   </li>
                 </ul>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-building"></i>Cá nhân<span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-building"></i>Quản lý thông tin<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.php?xem=<?php echo md5("thongtincanhan") ?>">Thông tin cá nhân</a></li>
                     </ul>

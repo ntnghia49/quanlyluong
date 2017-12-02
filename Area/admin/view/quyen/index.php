@@ -96,8 +96,8 @@
 				<thead>
 					<tr>
 						<th>STT</th>
-						<th>Quyền</th>
-						<th><center>Thao tác<center></th>
+						<th>QUYỀN</th>
+						<th><center>THAO TÁC<center></th>
 					</tr>
 				</thead>
 				<tbody>

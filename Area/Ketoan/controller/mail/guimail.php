@@ -4,8 +4,8 @@
     include("../../model/bangluong.php");
     function sendMail($title, $content, $nTo, $mTo,$diachicc){
         $nFrom = 'Luong';
-        $mFrom = 'lynhnguyenit@gmail.com';  //dia chi email cua ban 
-        $mPass = 'yenlinh23';       //mat khau email cua ban
+        $mFrom = 'ntnghia1234@gmail.com';  //dia chi email cua ban 
+        $mPass = 'anhemdoanket123';       //mat khau email cua ban
         $mail  = new PHPMailer\PHPMailer\PHPMailer();
         $body  = $content;
         $mail->IsSMTP(); 

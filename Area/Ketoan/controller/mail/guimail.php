@@ -4,7 +4,7 @@
     include("../../model/bangluong.php");
     function sendMail($title, $content, $nTo, $mTo,$diachicc){
         $nFrom = 'Luong';
-        $mFrom = 'lynhnguyenit.com';  //dia chi email cua ban 
+        $mFrom = 'lynhnguyenit@gmail.com';  //dia chi email cua ban 
         $mPass = 'yenlinh23';       //mat khau email cua ban
         $mail  = new PHPMailer\PHPMailer\PHPMailer();
         $body  = $content;

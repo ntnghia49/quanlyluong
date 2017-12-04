@@ -276,7 +276,7 @@
       var thang=ngayhientai.getMonth();
       var thangchon=$('#thang').val();
       var namchon=$('#nam').val();
-      if(thangchon!=thang)
+      if(thangchon!=thang+1)
         toastr.error('Có lỗi xảy ra');
       else{
         $.post('controller/mail/guimail.php',{thangchon:thangchon,namchon:namchon},function(data){

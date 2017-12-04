@@ -76,10 +76,11 @@
         $diachicc = 'ntnghia1234@gmail.com';
         //test gui mail
         $mail = sendMail($title, $content, $nTo, $mTo,$diachicc);
-        if($mail==1)
-           $i++;
-        $bl->MaBL=$MaBL;
-        $bl->capnhattrangthai();
+        if($mail==1){
+           	$i++;
+        	$bl->MaBL=$MaBL;
+       		$bl->capnhattrangthai();
+       	}
     }
     echo "Đã gửi thành công ".$i." email ";
     }else{

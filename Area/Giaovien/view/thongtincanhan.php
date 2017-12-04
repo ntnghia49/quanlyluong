@@ -205,7 +205,7 @@
   $(document).ready(function(){
       $('.capnhat').click(function(){
 
-        var mang = $(".ngaysinh").text().trim().split("/");
+        var mang = $(".ngaysinh").text().trim().split("-");
               var date = new Date(mang[2] + "-" + mang[1] + "-" + mang[0]);
               var ngay = date.getDate();
               var thang = date.getMonth() + 1;

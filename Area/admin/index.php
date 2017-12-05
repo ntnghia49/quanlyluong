@@ -134,6 +134,11 @@
                       <li><a href="index.php?xem=<?php echo md5("quanlyquyen") ?>">Cập nhật quyền</a></li>
                     </ul>
                   </li>
+                  <li><a><i class="fa fa-book"></i> Quản lý thông tin <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="index.php?xem=<?php echo md5("thongtincanhan") ?>">Thông tin cá nhân</a></li>
+                    </ul>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -185,11 +190,16 @@
                   if($xem==md5("quanlytaikhoan")){
                     include('controller/taikhoan/taikhoancontroller.php');
                   }else{
-                    include('../../View/chaomung.php');
+                     if($xem==md5("thongtincanhan")){
+                      include('controller/canhan/thongtincanhan.php');
+                      }else{
+                        include('../../View/chaomung.php');
+                      }
                   }
-                }
         			}
-        		}else{
+            }
+          }
+        		else{
         			include('../../View/chaomung.php');
         		}
         	?>
